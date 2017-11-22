@@ -1,0 +1,6 @@
+D:\GITHUB\ASP\Web\DataAccess\bin\Debug\DataAccess.dll
+D:\GITHUB\ASP\Web\DataAccess\bin\Debug\DataAccess.pdb
+D:\GITHUB\ASP\Web\DataAccess\bin\Debug\Core.dll
+D:\GITHUB\ASP\Web\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\GITHUB\ASP\Web\DataAccess\obj\Debug\DataAccess.dll
+D:\GITHUB\ASP\Web\DataAccess\obj\Debug\DataAccess.pdb
