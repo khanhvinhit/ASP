@@ -1,2 +1,5 @@
 /Web/NhaHang.v12.suo
 /Web/NhaHang.sln
+*.sln
+*.suo
+Web/NhaHang/Web.config
