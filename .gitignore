@@ -1,2 +1,4 @@
 /Web/NhaHang.v12.suo
 /Web/NhaHang.sln
+*.cache
+Web/.vs/NhaHang/v14/.suo
