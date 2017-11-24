@@ -43,12 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\tblAbout.cs" />
+    <Compile Include="Classes\tblAccount.cs" />
+    <Compile Include="Classes\tblAccountType.cs" />
+    <Compile Include="Classes\tblCategory.cs" />
+    <Compile Include="Classes\tblOrder.cs" />
+    <Compile Include="Classes\tblOrderDeails.cs" />
+    <Compile Include="Classes\tblProduct.cs" />
+    <Compile Include="Classes\tblRoom.cs" />
+    <Compile Include="Classes\tblRoomType.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
