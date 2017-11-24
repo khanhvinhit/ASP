@@ -8,17 +8,20 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 public partial class Admin_Login : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
+        txtEmail.Focus();
 		if (Session["email"] != null || Session["pass"] != null)
 		{
 			Response.Redirect("Default.aspx");
 		}
 	}
-	protected void btnLogin_Click(object sender, EventArgs e)
+    
+    protected void btnLogin_Click(object sender, EventArgs e)
 	{
 		KiemTraNhap(txtEmail.Text + "", MaHoapass(txtPassword.Text).Trim());
 	}
@@ -75,7 +78,7 @@ public partial class Admin_Login : System.Web.UI.Page
 	}
 	private static DataSet ThucThiStore_DataSet(string StoredProcedure, params SqlParameter[] Parameters)
 	{
-		string ConnectionString =@"Data Source=.\SQLEXPRESS;Initial Catalog=NhaHang;Integrated Security=True";
+	    string ConnectionString = ConfigurationManager.ConnectionStrings["NhaHangConnectionString"].ConnectionString; ;// @"Data Source=.\SQLEXPRESS;Initial Catalog=NhaHang;Integrated Security=True";
 		SqlConnection Conn = new SqlConnection(ConnectionString);
 		SqlCommand Command = new SqlCommand(StoredProcedure, Conn);
 		if (Parameters != null)
