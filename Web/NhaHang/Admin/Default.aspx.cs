@@ -9,13 +9,9 @@ public partial class Admin_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-		if (Session["email"] != null && Session["pass"] != null)
+		if (Session["email"] == null || Session["pass"] == null)
 		{
-			Response.Redirect("Default.aspx");
-		}
-		else
-		{
-			Response.Redirect("Login.aspx");
-		}
+            Response.Redirect("Login.aspx");
+        }
     }
 }
