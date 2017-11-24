@@ -1,0 +1,252 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="site1.master.cs" Inherits="Layout_site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="Nhà hàng Ganeya Nhật Bản"/>
+    <meta name="keywords" content="Những món ăn Nhật ngon nhất"/>
+    <meta name="author" content="Internship CongNV"/>
+    <link rel="shortcut icon" href="../../Content//img/favicon.ico" /> 
+    <title>Nh&#224; h&#224;ng phục vụ c&#225;c m&#243;n ăn Nhật Bản Ganeya Nhật Bản</title>
+    <!-- Bootstrap core CSS -->
+    <script src="../../scripts/jquery-1.10.2.min.js"></script>
+    <link href="../../Content//PagedList.css" rel="stylesheet" />
+    <link href="../../Content//vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../Content//font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light-mint/all.min.css" />
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="../../Content//css/business-casual.css" rel="stylesheet"/>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="MauChu">
+    <div class="tagline-upper text-center text-heading text-shadow text-white mt-5 d-none d-lg-block mb-2">GANEYA Nhật Bản</div>
+        <div class="tagline-lower text-center text-expanded text-shadow text-uppercase text-white mb-5 d-none d-lg-block">5A Đ&#224;o Duy Từ, Phường 4, Tp. Đ&#224; Lạt | 0167 394 0628   | 0263 354 7868   </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-faded py-lg-4" >
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="/">Ganeya Nhật Bản</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active px-lg-3">
+                    <a class="nav-link text-uppercase text-expanded" href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link text-uppercase text-expanded " href="/GioiThieu">Giới Thiệu</a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link text-uppercase text-expanded" href="/ThucDon">Thực Đơn</a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link text-uppercase text-expanded" href="/Combo">Gói Combo <span class="badge badge-secondary">12
+
+
+</span></a>
+
+                </li>
+
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link text-uppercase text-expanded" href="/KhuyenMaiSuKien">Khuyến Mãi - Sự Kiện <span class="badge badge-secondary">
+4</span></a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <a class="nav-link text-uppercase text-expanded" href="/TuyenDung">Tuyển Dụng <span class="badge badge-secondary">
+2
+</span></a>
+                </li>
+                <li class="nav-item px-lg-3">
+                    <div class="dropdown show">
+                            
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div id="DangNhap">
+                                    <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/DangNhap">Đăng Nhập</a>
+                                    <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/DangKy">Đăng Ký Thành Viên</a>
+                                </div>
+                                <div id="DangXuat">
+                                    <p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif"></p>
+                                    <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/TaiKhoanChiTiet">Quản lý tài khoản</a>
+                                    <a class="dropdown-item" id="QLAdmin" style="font-family: 'Roboto Condensed', sans-serif" href="/Admin">Trang Admin</a>
+                                    <p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif"><a href="/TaiKhoan/DangXuat">Đăng Xuất</a></p>
+                                </div>                                
+                            </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!--Cài đặt đa giao diện-->
+        <div style="position: fixed; top: 5%; left: 0.5%; z-index: 2" id="GioHang1" >            
+            <div class="panel panel-default" style="width:auto">
+                <div class="panel-heading ">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">
+                            <b class="badge badge-light rounded-circle" style="color:black"><i class="fa fa-cog fa-1x"></i></b>
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse alert alert-light">
+                    <h4>Màu chữ</h4>
+                    <button type="button" class="btnMauChu1 btn btn-dark rounded-circle" data-color="text-dark"></button>
+                    <button type="button" class="btnMauChu5 btn btn-light rounded-circle border border-dark" data-color="text-light"></button>
+                    <button type="button" class="btnMauChu2 btn btn-primary rounded-circle" data-color="text-primary"></button>
+                    <button type="button" class="btnMauChu3 btn btn-danger rounded-circle" data-color="text-danger"></button>
+                    <button type="button" class="btnMauChu4 btn btn-warning rounded-circle" data-color="text-warning"></button>
+                    <hr />
+                    <h4>Màu nền</h4>
+                    <button type="button" class="btnMauNen2 btn btn-light rounded-circle border border-dark" data-color="#FAFAFA"></button>
+                    <button type="button" class="btnMauNen1 btn btn-dark rounded-circle" data-color="#19070B"></button>                    
+                    <button type="button" class="btnMauNen3 btn btn-success rounded-circle" data-color="#A9F5D0"></button>
+                    <button type="button" class="btnMauNen4 btn btn-warning rounded-circle" data-color="#DF7401"></button>
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+            <!-- Giỏ hàng -->
+            <div style="position: fixed; top: 15%; right: 0.5%; z-index: 2; " id="GioHang1">
+                <img src="../../Content//img/icon_256.png" data-toggle="modal" data-target=".bd-example-modal-lg-9-m" style="max-width: 40px; max-height: 40px" /> <span class="badge badge-secondary">0</span>
+            </div>            
+                
+        </div>
+
+
+        <div class="bg-faded p-4 my-4" id="nivoSlider">
+            <!-- Image Carousel -->
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div style="max-height: 32rem; height: auto">
+                            <img class="d-block img-fluid w-100" src="../../Content//img/slide-1.jpg" style="height: 80%" alt="" />
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="text-shadow">First Slide</h3>
+                            <p>This is the caption for the first slide.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="max-height: 32rem; height: auto">
+                            <img class="d-block img-fluid w-100" src="../../Content//img/MonAn/KhuyenMai-Sukien/Khuyenmai.jpg" alt="" />
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="text-shadow">Giảm gi&#225;1</h3>
+                            <p>Giảm giá 10 % từ 05/09 đến 05/10</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="max-height: 32rem; height: auto">
+                            <img class="d-block img-fluid w-100" src="../../Content//img/MonAn/KhuyenMai-Sukien/Khuyenmai.jpg" alt="" />
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="text-shadow">Giảm gi&#225;2</h3>
+                            <p>Giảm giá 20 % từ 05/09 đến 05/10</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="carousel-item ">
+                        <div style="max-height: 32rem; height: auto">
+                            <img class="d-block img-fluid w-100" src="../../Content//img/MonAn/KhuyenMai-Sukien/Sukien1.jpg" alt="" />
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="text-shadow">khuyến m&#227;i Quốc Kh&#225;nh 2/9 – tặng m&#243;n ăn trị gi&#225; 59k</h3>
+                            <p>Bắt đầu từ 01/09 đến 04/09</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div style="max-height: 32rem; height: auto">
+                            <img class="d-block img-fluid w-100" src="../../Content//img/MonAn/KhuyenMai-Sukien/Sukien1.jpg" alt="" />
+                        </div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h3 class="text-shadow">khuyến m&#227;i Quốc Kh&#225;nh 2/9 – tặng m&#243;n ăn trị gi&#225; 59k</h3>
+                            <p>Bắt đầu từ 01/09 đến 04/09</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!-- Welcome Message -->
+            <div class="text-center mt-4">
+                <div class="text-heading text-lg"><p>Welcome To</p></div>
+                <h2 class="my-2">GANEYA Nhật Bản</h2>
+                <div class="text-heading text-lg">
+                    <p>By <strong>Group 2</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <%--<form id="form1" runat="server">--%>
+            <div class="bg-faded p-4 my-4">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    
+                </asp:ContentPlaceHolder>
+            </div>
+        <%--</form>--%>        
+        <div>
+            <div class="bg-faded p-4 my-4 " id="ThongTinNhaHang">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card mt-2" style="width: auto; height: 30rem">
+                            <h4 class="card-header text-center text-secondary">Địa chỉ nhà hàng</h4>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.5542775457907!2d108.43174131481152!3d11.936076291541085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3171133183e34293%3A0xd50d1d446350749c!2zR2FuZXlhIFJlc3R1YXJhbnQgLSBOaMOgIEjDoG5nIE5o4bqtdCBC4bqjbg!5e0!3m2!1svi!2sin!4v1503227601502" min-width="500" height="500" frameborder="0" style="border: 0;"></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card mt-2" style="width: auto;">
+                            <h3 class=" card-header text-center text-secondary">Thông tin liên hệ</h3>
+                            <p class="card-text ml-2">
+                                Địa chỉ: 5A Đ&#224;o Duy Từ, Phường 4, Tp. Đ&#224; Lạt
+                            </p>
+                            <p class="card-text ml-2">
+                                Điện thoại: 0167 394 0628   - 0263 354 7868  
+                            </p>
+                            <p class="card-text ml-2">
+                                Giờ mở cửa: Giờ mở cửa: Ganeya Nhật Bản mở cửa 7 ng&#224;y trong tuần, buổi trưa từ 11:30AM - 2PM, buổi tối từ 5PM - 11PM..
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-faded text-center py-2">
+                <div class="container">
+                    <p class="m-0">Copyright &copy; Thực tập nhóm 2</p>
+                </div>
+            </footer>
+            <!-- Bootstrap core JavaScript -->
+            <script src="../../Content//vendor/jquery/jquery.min.js"></script>
+            <script src="../../Content//vendor/popper/popper.min.js"></script>
+            <script src="../../Content//vendor/bootstrap/js/bootstrap.min.js"></script>
+            <script src="../../scripts/multiple-themes.js"></script>
+        </div>
+        </div>
+</body>
+</html>
