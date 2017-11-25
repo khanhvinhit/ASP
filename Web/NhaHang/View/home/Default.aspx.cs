@@ -16,8 +16,15 @@ public partial class View_home_Default : System.Web.UI.Page
     }
     private void PopulateControls()
     {
-        TopHot.DataSource = tblProduct.TopHot().Take(3).OrderByDescending(n=>n.CreateDate);
+        //Những món ăn được chọn nhiều
+        TopHot.DataSource = tblProduct.TopHot();
         TopHot.DataBind();
+        //món ăn mới cập nhập
+        NewCreate.DataSource = tblProduct.NewFood();
+        NewCreate.DataBind();
+    }
+    protected void btnDatMon_Click(object sender, EventArgs e)
+    {
 
     }
 }
