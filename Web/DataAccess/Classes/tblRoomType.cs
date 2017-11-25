@@ -1,4 +1,4 @@
-namespace ClassLibrary1.NewFolder1
+namespace DataAccess.Classes
 {
     using System;
     using Core;
