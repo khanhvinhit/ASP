@@ -29,23 +29,13 @@ namespace DataAccess.Classes
         {
 
         }
+        public static List<tblProduct> NewFood()
+        {
+            return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_NewCreate_Products"));
+        }
         public static List<tblProduct> TopHot()
         {
-            //IDataReader reader = null;
-            //try
-            //{
-            //    reader = DataProvider.Instance.ExecuteReader("SP_Select_tblProduct");
-            //    reader.Read();
-            //    reader.NextResult();
-            //    List<tblProduct> a = CBO.FillCollection<tblProduct>(reader);
-            //    return CBO.FillCollection<tblProduct>(reader);
-            //}
-            //catch {
-            //    if (reader != null && reader.IsClosed == false)
-            //        reader.Close();
-            //    return new List<tblProduct>();
-            //}
-            return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_Select_tblProduct"));
+            return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_NewCreate_Products"));
         }
     }
 }

@@ -41,27 +41,21 @@
                     <a class="nav-link text-uppercase text-expanded" href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
                 </li>
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded " href="/GioiThieu">Giới Thiệu</a>
+                    <a class="nav-link text-uppercase text-expanded " href="#">Giới Thiệu</a>
                 </li>
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="/ThucDon">Thực Đơn</a>
+                    <a class="nav-link text-uppercase text-expanded" href="/View/Category/Category.aspx">Thực Đơn</a>
                 </li>
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="/Combo">Gói Combo <span class="badge badge-secondary">12
-
-
-</span></a>
+                    <a class="nav-link text-uppercase text-expanded" href="#">Gói Combo <span class="badge badge-secondary">12</span></a>
 
                 </li>
 
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="/KhuyenMaiSuKien">Khuyến Mãi - Sự Kiện <span class="badge badge-secondary">
-4</span></a>
+                    <a class="nav-link text-uppercase text-expanded" href="#">Khuyến Mãi - Sự Kiện <span class="badge badge-secondary">4</span></a>
                 </li>
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="/TuyenDung">Tuyển Dụng <span class="badge badge-secondary">
-2
-</span></a>
+                    <a class="nav-link text-uppercase text-expanded" href="#">Tuyển Dụng <span class="badge badge-secondary">2</span></a>
                 </li>
                 <li class="nav-item px-lg-3">
                     <div class="dropdown show">
@@ -162,9 +156,6 @@
                             <p>Giảm giá 20 % từ 05/09 đến 05/10</p>
                         </div>
                     </div>
-
-
-
                     <div class="carousel-item ">
                         <div style="max-height: 32rem; height: auto">
                             <img class="d-block img-fluid w-100" src="../../Content//img/MonAn/KhuyenMai-Sukien/Sukien1.jpg" alt="" />
@@ -205,12 +196,12 @@
         </div>
 
         <%--<form id="form1" runat="server">--%>
-            <div class="bg-faded p-4 my-4">
+            
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     
                 </asp:ContentPlaceHolder>
-            </div>
-        <%--</form>--%>        
+            <%--</div>--%>
+        <%--/form>--%>        
         <div>
             <div class="bg-faded p-4 my-4 " id="ThongTinNhaHang">
                 <div class="row">
