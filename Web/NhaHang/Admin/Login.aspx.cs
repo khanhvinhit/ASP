@@ -9,13 +9,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using DataAccess.Classes;
 
 public partial class Admin_Login : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
         txtEmail.Focus();
-		if (Session["email"] != null || Session["pass"] != null)
+		if (Session["email"] != null)
 		{
 			Response.Redirect("Default.aspx");
 		}
@@ -36,9 +37,13 @@ public partial class Admin_Login : System.Web.UI.Page
 			switch (num)
 			{
 				case 0: // Khai báo Session cho phép đăng nhập
-					Session["email"] = txtEmail.Text.ToString().ToLower();
-					Session["pass"] = MaHoapass(txtPassword.Text);
-					Response.Redirect("Default.aspx");
+			        tblAccount account = tblAccount.Get_Accounts_By_Email(email);
+                    Session["email"] = account.Email;
+                    Session["type"] = account.Type;
+                    Session["name"] = account.Name;
+                    Session["avatar"] = account.Avatar;
+
+                    Response.Redirect("Default.aspx");
 					break;
 				case 1: //Thông báo tên đăng nhập không tồn tại
 					ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Tên đăng nhập không tồn tại');", true);
@@ -78,7 +83,7 @@ public partial class Admin_Login : System.Web.UI.Page
 	}
 	private static DataSet ThucThiStore_DataSet(string StoredProcedure, params SqlParameter[] Parameters)
 	{
-	    string ConnectionString = ConfigurationManager.ConnectionStrings["NhaHangConnectionString"].ConnectionString; ;// @"Data Source=.\SQLEXPRESS;Initial Catalog=NhaHang;Integrated Security=True";
+	    string ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; ;// @"Data Source=.\SQLEXPRESS;Initial Catalog=NhaHang;Integrated Security=True";
 		SqlConnection Conn = new SqlConnection(ConnectionString);
 		SqlCommand Command = new SqlCommand(StoredProcedure, Conn);
 		if (Parameters != null)
