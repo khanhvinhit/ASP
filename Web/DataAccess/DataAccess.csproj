@@ -52,6 +52,7 @@
     <Compile Include="Classes\tblProduct.cs" />
     <Compile Include="Classes\tblRoom.cs" />
     <Compile Include="Classes\tblRoomType.cs" />
+    <Compile Include="Common.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
