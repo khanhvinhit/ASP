@@ -37,5 +37,12 @@ namespace DataAccess.Classes
         {
             return CBO.FillObject<tblAccount>(DataProvider.Instance.ExecuteReader("SP_Select_tblAccount_By_Email",email));
         }
+
+        public static DataSet Check_Login(string email, string pass)
+        {
+            
+            return DataProvider.Instance.ExecuteDataset("SP_Login", email, pass);
+                //DataProvider.Instance.ExecuteReader("SP_Login", email, pass);
+        }
     }
 }

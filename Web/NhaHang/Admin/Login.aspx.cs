@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using DataAccess.Classes;
+using DataAccess;
 
 public partial class Admin_Login : System.Web.UI.Page
 {
@@ -24,16 +25,16 @@ public partial class Admin_Login : System.Web.UI.Page
     
     protected void btnLogin_Click(object sender, EventArgs e)
 	{
-		KiemTraNhap(txtEmail.Text + "", MaHoapass(txtPassword.Text).Trim());
+		KiemTraNhap(txtEmail.Text + "",Common.MaHoapass(txtPassword.Text).Trim());
 	}
 
 	private void KiemTraNhap(string email, string pass)
 	{
-		DataTable dtb = StoreToDataTable(email, pass);
-		int num = 0;
-		if (dtb.Rows.Count > 0)
+        DataTable dt = tblAccount.Check_Login(email, pass).Tables[0];
+        int num = 0;
+		if (dt.Rows.Count > 0)
 		{
-			num = int.Parse("0" + dtb.Rows[0][0]);
+			num = int.Parse("0" + dt.Rows[0][0]);
 			switch (num)
 			{
 				case 0: // Khai báo Session cho phép đăng nhập
@@ -59,63 +60,7 @@ public partial class Admin_Login : System.Web.UI.Page
 					break;
 			}
 		}
-		dtb.Dispose();
+		dt.Dispose();
 	}
-	public string MaHoapass(string password)
-	{
-		MD5 md5 = new MD5CryptoServiceProvider();
-
-		//Compute hash from the bytes of text
-		md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(password));
-
-		//Get hash result after compute it
-		byte[] result = md5.Hash;
-
-		StringBuilder strBuilder = new StringBuilder();
-		for (int i = 0; i < result.Length; i++)
-		{
-			//Change it into 2 hexadecimal digits
-			//For each byte
-			strBuilder.Append(result[i].ToString("x2"));
-		}
-
-		return strBuilder.ToString();
-	}
-	private static DataSet ThucThiStore_DataSet(string StoredProcedure, params SqlParameter[] Parameters)
-	{
-	    string ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString; ;// @"Data Source=.\SQLEXPRESS;Initial Catalog=NhaHang;Integrated Security=True";
-		SqlConnection Conn = new SqlConnection(ConnectionString);
-		SqlCommand Command = new SqlCommand(StoredProcedure, Conn);
-		if (Parameters != null)
-		{
-			Command.Parameters.Clear();
-			Command.Parameters.AddRange(Parameters);
-		}
-		DataSet ds = new DataSet();
-		SqlDataAdapter da = new SqlDataAdapter(StoredProcedure, Conn);
-		Command.CommandType = CommandType.StoredProcedure;
-		da.SelectCommand = Command;
-		try
-		{
-			Conn.Open();
-			da.Fill(ds);
-		}
-		finally
-		{
-			if (Conn.State == ConnectionState.Open)
-				Conn.Close();
-			Conn.Dispose();
-		}
-		return ds;
-	}
-	private DataTable StoreToDataTable(string email, string pass)
-	{
-		SqlParameter[] arrParam = {
-            new SqlParameter("@Email", SqlDbType.NVarChar),
-            new SqlParameter("@Password", SqlDbType.NVarChar)
-            };
-		arrParam[0].Value = email;
-		arrParam[1].Value = pass;
-		return ThucThiStore_DataSet("SP_Login", arrParam).Tables[0];
-	}
+	
 }
