@@ -17,6 +17,7 @@ namespace DataAccess.Classes
         public string Images { get; set; }
 
         public decimal? Price { get; set; }
+        public int QuantityOrder { get; set; }
 
         public decimal? Discount { get; set; }
 
@@ -35,7 +36,11 @@ namespace DataAccess.Classes
         }
         public static List<tblProduct> TopHot()
         {
-            return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_NewCreate_Products"));
+            return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_TopHot_Product"));
+        }
+        public static List<tblProduct> Detail(int id)
+        {
+            return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_ProductByCategoryID_tblProduct", id));
         }
     }
 }
