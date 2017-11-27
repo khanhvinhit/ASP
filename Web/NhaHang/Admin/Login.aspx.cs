@@ -17,11 +17,11 @@ public partial class Admin_Login : System.Web.UI.Page
 	protected void Page_Load(object sender, EventArgs e)
 	{
         txtEmail.Focus();
-		if (Session["email"] != null || Session["pass"] != null)
-		{
-			Response.Redirect("Default.aspx");
-		}
-	}
+        if (Session["email"] == null)
+        {
+            Response.Redirect("Login.aspx");
+        }
+    }
     
     protected void btnLogin_Click(object sender, EventArgs e)
 	{
@@ -56,7 +56,7 @@ public partial class Admin_Login : System.Web.UI.Page
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Tên đăng nhập này đã bị khóa!');", true);
                     break;
                 case 4: // Thông báo phải đổi mật khẩu và chuyển người dùng đến trang Doipass.aspx
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Bạn phải đổi mật khẩu trước khi đăng nhập!');location.href='Doipass.aspx?userid=" + email + "'", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Bạn phải đổi mật khẩu trước khi đăng nhập!');", true);
                     break;
             }
         }
