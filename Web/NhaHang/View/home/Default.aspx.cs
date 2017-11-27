@@ -17,8 +17,7 @@ public partial class View_home_Default : System.Web.UI.Page
     private void PopulateControls()
     {
         //Những món ăn được chọn nhiều
-        TopHot.DataSource = tblProduct.TopHot();
-        TopHot.DataBind();
+        
         //món ăn mới cập nhập
         NewCreate.DataSource = tblProduct.NewFood();
         NewCreate.DataBind();

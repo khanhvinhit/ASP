@@ -46,10 +46,6 @@
                 <li class="nav-item px-lg-3">
                     <a class="nav-link text-uppercase text-expanded" href="/View/Category/Category.aspx">Thực Đơn</a>
                 </li>
-                <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="#">Gói Combo <span class="badge badge-secondary">12</span></a>
-
-                </li>
 
                 <li class="nav-item px-lg-3">
                     <a class="nav-link text-uppercase text-expanded" href="#">Khuyến Mãi - Sự Kiện <span class="badge badge-secondary">4</span></a>
