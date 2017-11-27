@@ -39,6 +39,7 @@ public partial class Admin_Login : System.Web.UI.Page
             {
                 case 0: // Khai báo Session cho phép đăng nhập
                     tblAccount account = tblAccount.Get_Accounts_By_Email(email);
+                    Session["id"] = account.ID;
                     Session["email"] = account.Email;
                     Session["type"] = account.Type;
                     Session["name"] = account.Name;

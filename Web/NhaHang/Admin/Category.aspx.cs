@@ -30,4 +30,20 @@ public partial class Admin_Category : System.Web.UI.Page
         ListTable.DataSource = tblCategory.All();
         ListTable.DataBind();
     }
+
+    protected override void OnInit(EventArgs e)
+    {
+        base.OnInit(e);
+        btnDelete.Click += new EventHandler(btnDelete_Click);
+    }
+
+    void btnDelete_Click(object sender, EventArgs e)
+    {
+        string stringid = Request.Form["cid"] ?? "";
+        if (stringid != "")
+        {
+            foreach (string id in stringid.Split(',')) tblCategory.Delete(id); PopulateControls(); 
+            
+        }
+    }
 }
