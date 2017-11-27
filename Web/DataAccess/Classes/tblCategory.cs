@@ -15,10 +15,6 @@ namespace DataAccess.Classes
         public DateTime? CreateDate { get; set; }
 
         public int? AccountID { get; set; }
-        public tblCategory()
-        {
-
-        }
         public static List<tblCategory> All()
         {
             return CBO.FillCollection<tblCategory>(DataProvider.Instance.ExecuteReader("SP_Select_tblCategory"));
