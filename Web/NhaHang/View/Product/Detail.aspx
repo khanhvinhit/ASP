@@ -1,18 +1,27 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/layout/site1.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="View_home_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/layout/site1.master" AutoEventWireup="true" CodeFile="Detail.aspx.cs" Inherits="View_Product_Detail" %>
 
 <%@ Register Src="~/View/Product/TopFood.ascx" TagPrefix="uc1" TagName="TopFood" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <style>
+        #carouselExampleIndicators{
+            display:none;
+        }
+    </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="bg-faded p-4 my-4">
         <hr class="divider" />
-        <h2 class="text-center text-lg text-uppercase my-0">Món <strong>Ngon</strong> <a href="/ThucDon?Length=8"><span class="badge badge-danger">Xem Thêm</span></a>
-        </h2>
+        <asp:Repeater ID="rpNameCategory" runat="server">
+            <ItemTemplate>
+                <h2 class="text-center text-lg text-uppercase my-0">Loại món ăn <strong><%# Eval("Name") %></strong>  <a href="../Category/Category.aspx"><span class="badge badge-danger">Quay Lại</span></a>            
+                    </h2>
+            </ItemTemplate>
+        </asp:Repeater>                
         <hr class="divider" />
         <div class="row">
-            <asp:Repeater ID="NewCreate" runat="server">
+            <asp:Repeater ID="rpDetail" runat="server">
                 <ItemTemplate>
                     <div class="media col-md-4 mt-4">
                         <div class="card" style="width: 20rem; box-shadow: 5px 3px 5px #708090">
@@ -70,8 +79,18 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+                
         </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>   
     </div> 
-    <uc1:TopFood runat="server" id="TopFood" />
+    <uc1:TopFood runat="server" ID="TopFood" />
 </asp:Content>
 
