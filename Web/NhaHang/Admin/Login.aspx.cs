@@ -16,11 +16,11 @@ public partial class Admin_Login : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{
-        txtEmail.Focus();
-        if (Session["email"] == null)
+        
+        if (Session["email"] != null)
         {
-            Response.Redirect("Login.aspx");
-        }
+            Response.Redirect("Default.aspx");
+        }txtEmail.Focus();
     }
     
     protected void btnLogin_Click(object sender, EventArgs e)

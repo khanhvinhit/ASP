@@ -30,6 +30,11 @@ namespace DataAccess.Classes
         {
 
         }
+
+        public static List<tblProduct> Get_All()
+        {
+            return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_Select_tblProduct"));
+        }
         public static List<tblProduct> NewFood()
         {
             return CBO.FillCollection<tblProduct>(DataProvider.Instance.ExecuteReader("SP_NewCreate_Products"));

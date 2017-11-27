@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess.Classes;
 
-public partial class Admin_Account : System.Web.UI.Page
+public partial class Admin_Room : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,13 +21,12 @@ public partial class Admin_Account : System.Web.UI.Page
                 PopulateControls();
             }
         }
-
     }
 
     private void PopulateControls()
     {
         ListTable.Controls.Clear();
-        ListTable.DataSource = tblAccount.Get_All_Accounts();
+        ListTable.DataSource = tblRoom.Get_All();
         ListTable.DataBind();
     }
 }
