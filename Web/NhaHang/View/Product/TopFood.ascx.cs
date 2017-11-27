@@ -5,19 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess.Classes;
-public partial class View_Category_Category : System.Web.UI.Page
+public partial class View_Product_TopFood : System.Web.UI.UserControl
 {
-
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            All();
+            TopHot.DataSource = tblProduct.TopHot();
+            TopHot.DataBind();
         }
-    }
-    public void All()
-    {
-        SelectAll.DataSource = tblCategory.All();
-        SelectAll.DataBind();
     }
 }

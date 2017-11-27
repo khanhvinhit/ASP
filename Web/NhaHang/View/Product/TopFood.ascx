@@ -1,18 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/layout/site1.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="View_home_Default" %>
-
-<%@ Register Src="~/View/Product/TopFood.ascx" TagPrefix="uc1" TagName="TopFood" %>
-
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div class="bg-faded p-4 my-4">
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="TopFood.ascx.cs" Inherits="View_Product_TopFood" %>
+<div class="bg-faded p-4 my-4">
         <hr class="divider" />
-        <h2 class="text-center text-lg text-uppercase my-0">Món <strong>Ngon</strong> <a href="/ThucDon?Length=8"><span class="badge badge-danger">Xem Thêm</span></a>
+        <h2 class="text-center text-lg text-uppercase my-0">Món ăn được <strong>xem nhiều</strong> <a href="/ThucDon?Length=8"><span class="badge badge-danger">Xem Thêm</span></a>
         </h2>
         <hr class="divider" />
         <div class="row">
-            <asp:Repeater ID="NewCreate" runat="server">
+            <asp:Repeater ID="TopHot" runat="server">
                 <ItemTemplate>
                     <div class="media col-md-4 mt-4">
                         <div class="card" style="width: 20rem; box-shadow: 5px 3px 5px #708090">
@@ -71,7 +64,4 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-    </div> 
-    <uc1:TopFood runat="server" id="TopFood" />
-</asp:Content>
-
+    </div>     
