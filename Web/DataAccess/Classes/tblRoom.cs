@@ -21,5 +21,10 @@ namespace DataAccess.Classes
 
         public DateTime? CreateDate { get; set; }
 
+
+        public static List<tblRoom> Get_All()
+        {
+            return CBO.FillCollection<tblRoom>(DataProvider.Instance.ExecuteReader("SP_Select_tblRoom"));
+        }
     }
 }
