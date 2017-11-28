@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Adminsite.master" AutoEventWireup="true" CodeFile="Room.aspx.cs" Inherits="Admin_Room" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Adminsite.master" AutoEventWireup="true" CodeFile="About.aspx.cs" Inherits="Admin_About" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Table" Runat="Server">
     <div class="col-lg-12">
@@ -20,11 +20,10 @@
                             </th>
                             <th>Mã số</th>
                             <th>Tên</th>
-                            <th>Hình</th>
-                            <th>Thông tin</th>
-                            <th>Loại</th>
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Tài khoản</th>
                             <th>Ngày tạo</th>
-                            <th>Người tạo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,12 +33,12 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td class="link"><a href='EditCategory.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
-                                    <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
-                                    <td><%# Eval("About") %></td>
-                                    <td><%# Eval("Type") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td class="link"><a href='EditAbout.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
+                                    
+                                    <td><%# Eval("Email") %></td>
+                                    <td><%# Eval("Phone1") %></td>
                                     <td><%# Eval("AccountID") %></td>
+                                    <td><%# Eval("CreateDate") %></td>
                                 </tr>
                             </AlternatingItemTemplate>
                             <ItemTemplate>
@@ -47,12 +46,12 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td class="link"><a href='EditCategory.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
-                                    <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
-                                    <td><%# Eval("About") %></td>
-                                    <td><%# Eval("Type") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td class="link"><a href='EditAbout.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
+                                    
+                                    <td><%# Eval("Email") %></td>
+                                    <td><%# Eval("Phone1") %></td>
                                     <td><%# Eval("AccountID") %></td>
+                                    <td><%# Eval("CreateDate") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

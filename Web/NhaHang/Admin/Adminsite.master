@@ -8,6 +8,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="../Content//img/favicon.ico" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -96,7 +97,10 @@
                             <a href="Product.aspx"><i class="fa fa-edit fa-fw"></i>Món ăn</a>
                         </li>
                         <li>
-                            <a href="Order.aspx"><i class="fa fa-wrench fa-fw"></i>Hóa đơn</a>>
+                            <a href="Order.aspx"><i class="fa fa-wrench fa-fw"></i>Hóa đơn</a>
+                        </li>
+                        <li>
+                            <a href="About.aspx"><i class="fa fa-table fa-fw"></i>Giới thiệu</a>
                         </li>
                         <li>
                             <a href="Room.aspx"><i class="fa fa-sitemap fa-fw"></i>Phòng</a>
@@ -109,7 +113,11 @@
         </nav>
 
         <div id="page-wrapper">
+            
             <form id="form1" runat="server">
+                <div class="row">
+                    <h1>Quản trị hệ thống</h1>
+                </div>
                 <!-- /.row -->
                 <div class="row">
                     <asp:ContentPlaceHolder ID="Table" runat="server">
