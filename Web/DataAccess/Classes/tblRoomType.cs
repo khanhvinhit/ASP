@@ -14,5 +14,10 @@ namespace DataAccess.Classes
         public int? AccountID { get; set; }
 
         public DateTime? CreateDate { get; set; }
+
+        public static List<tblRoomType> Get_All()
+        {
+            return CBO.FillCollection<tblRoomType>(DataProvider.Instance.ExecuteReader("SP_Select_tblRoomType"));
+        }
     }
 }
