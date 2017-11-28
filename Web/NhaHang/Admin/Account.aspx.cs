@@ -27,7 +27,7 @@ public partial class Admin_Account : System.Web.UI.Page
     private void PopulateControls()
     {
         //Những món ăn được chọn nhiều
-        ListTable.DataSource = tblAccount.Get_All_Accounts();
-        ListTable.DataBind();
+        //ListTable.DataSource = tblAccount.Get_All_Accounts();
+        //ListTable.DataBind();
     }
 }
