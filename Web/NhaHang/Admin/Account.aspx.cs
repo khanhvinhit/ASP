@@ -26,15 +26,9 @@ public partial class Admin_Account : System.Web.UI.Page
 
     private void PopulateControls()
     {
-<<<<<<< HEAD
-        //Những món ăn được chọn nhiều
-        //ListTable.DataSource = tblAccount.Get_All_Accounts();
-        //ListTable.DataBind();
-=======
         ListTable.Controls.Clear();
         ListTable.DataSource = tblAccount.Get_All_Accounts();
         ListTable.DataBind();
->>>>>>> 8858471dc3ea0ee01698071c7e8142f97cec7b89
     }
 
     protected override void OnInit(EventArgs e)
