@@ -4,28 +4,51 @@
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Danh sách tài khoản
+                Danh sách thực đơn
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                <div class="well">
+                    <input type="button" class="btn btn-primary" value="Thêm mới" onclick="location.href = 'EditAccount.aspx'" />
+                    <asp:Button Text="Xóa" runat="server" ID="btnDelete" CssClass="multidelete btn btn-danger" />
+                </div>
+                <table width="100%" class="table table-striped table-bordered table-hover list" id="dataTables-example">
                     <thead>
                         <tr>
+                            <th class="cid"  style="text-align: center">
+                                <input type="checkbox" id="chkAll" />
+                            </th>
                             <th>Mã số</th>
+                            <th>Tên</th>
+                            <th>Hình</th>
                             <th>Email</th>
                             <th>Loại</th>
-                            <th>Hình</th>
                             <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
                         <asp:Repeater ID="ListTable" runat="server">
+                            <AlternatingItemTemplate>
+                                <tr class="even">
+                                    <td style="text-align: center">
+                                        <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
+                                    <td><%#Eval("ID") %></td>
+                                    <td class="link"><a href='EditAccount.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
+                                    <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Avatar") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
+                                    <td><%# Eval("Email") %></td>
+                                    <td><%# Eval("TypeName") %></td>
+                                    <td><%# Eval("Status") %></td>
+                                </tr>
+                            </AlternatingItemTemplate>
                             <ItemTemplate>
                                 <tr class="odd gradeX">
-                                    <td><%# Eval("ID") %></td>
+                                    <td style="text-align: center">
+                                        <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
+                                    <td><%#Eval("ID") %></td>
+                                    <td class="link"><a href='EditAccount.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
+                                    <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Avatar") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
                                     <td><%# Eval("Email") %></td>
-                                    <td><%# Eval("Type") %></td>
-                                    <td><%# Eval("Avatar") %></td>
+                                    <td><%# Eval("TypeName") %></td>
                                     <td><%# Eval("Status") %></td>
                                 </tr>
                             </ItemTemplate>

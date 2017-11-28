@@ -14,7 +14,7 @@ namespace DataAccess.Classes
         public string Password { get; set; }
         
 
-        public int Type { get; set; }
+        public string TypeName { get; set; }
 
         public string Name { get; set; }
 
@@ -42,6 +42,46 @@ namespace DataAccess.Classes
 
             return DataProvider.Instance.ExecuteDataset("SP_Login", email, pass);
             //DataProvider.Instance.ExecuteReader("SP_Login", email, pass);
+        }
+
+        public static bool Add(tblAccount account)
+        {
+            try
+            {
+                object rs = DataProvider.Instance.ExecuteNonQueryWithOutput("@ID", "SP_Insert_tblAccount",
+                    account.ID,account.Email,account.Password,account.TypeName,account.Name,account.Avatar,account.Address,account.Phone,account.Status);
+                return Convert.ToInt32(rs) > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        public static bool Update(tblAccount account)
+        {
+            try
+            {
+                int rs = DataProvider.Instance.ExecuteNonQuery("SP_Update_tblAccount",
+                    account.ID, account.Email, account.Password, account.TypeName, account.Name, account.Avatar, account.Address, account.Phone, account.Status);
+                return rs > 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool Delete(string categoryID)
+        {
+            try
+            {
+                int rs = DataProvider.Instance.ExecuteNonQuery("SP_Delete_tblAccount", Convert.ToInt32(categoryID));
+                return rs > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
