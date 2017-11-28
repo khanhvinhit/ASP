@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataAccess;
 using DataAccess.Classes;
 
 public partial class Admin_EditAccount : System.Web.UI.Page
@@ -27,13 +28,18 @@ public partial class Admin_EditAccount : System.Web.UI.Page
 
     private void PopulateControls()
     {
+        int i = 0;
+        foreach (tblAccountType itType in tblAccountType.Get_All())
+        {
+            txtType.Items.Insert(i, new ListItem(itType.Name, itType.ID.ToString()));
+            i++;
+        }
         string cid = Request.QueryString["cid"] ?? "";
         // Neu co QueryString cid ==> cap nhat Category         
         if (cid != "")
         {
-
             // Lay category theo gia tri cid             
-            tblCategory data = tblCategory.Single(cid);
+            tblAccount data = tblAccount.Single(cid);
             // Khong ton tai category nay trong he thong             
             // chuyen huong ve trang Category.aspx             
             if (data == null)
@@ -48,8 +54,15 @@ public partial class Admin_EditAccount : System.Web.UI.Page
             lblId.Text = data.ID.ToString();
 
             // Gan cac thong tin con lai vao form             
+            txtEmail.Text = data.Email;
+            data.Password = "";
+            txtType.SelectedIndex = txtType.Items.IndexOf(txtType.Items.FindByText(data.TypeName));
+
             txtName.Text = data.Name;
-            Image1.ImageUrl = "/Admin/Images/Avatar/" + data.Image;
+            txtAddress.Text = data.Address;
+            txtPhone.Text = data.Phone;
+            txtStatus.Checked = data.Status == true ? true : false;
+            Image1.ImageUrl = "/Admin/Images/Avatar/" + data.Avatar;
             btnReset.Visible = false;
         }
         else
@@ -61,13 +74,8 @@ public partial class Admin_EditAccount : System.Web.UI.Page
             btnReset.Visible = true;
             txtType.Controls.Clear();
             txtType.DataBind();
-            int i = 0;
-            foreach (tblAccountType itType in tblAccountType.Get_All())
-            {
-                txtType.Items.Insert(i++,new ListItem(itType.Name, itType.ID.ToString()));
-            }
-            
-            
+
+
         }
     }
     protected override void OnInit(EventArgs e)
@@ -76,20 +84,22 @@ public partial class Admin_EditAccount : System.Web.UI.Page
         btnSave.Click += new EventHandler(btnSave_Click);
     } // Lay du lieu tu form de them moi/cap nhat     
 
-    private tblCategory GetData()
+    private tblAccount GetData()
     {
-        tblCategory data = null;
+        tblAccount data = null;
         if (lblId.Text != "")
             // lay thong tin cu tu Database de cap nhat     
-            data = tblCategory.Single(lblId.Text);
+            data = tblAccount.Single(lblId.Text);
         else
-            data = new tblCategory(); // them moi     
-        // lay Name tu textbox Name       
+            data = new tblAccount();
+        data.Email = txtEmail.Text;
+        data.Password = Common.MaHoapass(txtPassword.Text);
+        data.TypeName = txtType.SelectedValue;
         data.Name = txtName.Text;
-        // lay Description tu textbox Description    
-        data.Image = img;
-        data.CreateDate = DateTime.Now;
-        data.AccountID = (int)Session["id"];
+        data.Avatar = img;
+        data.Address = txtAddress.Text;
+        data.Phone = txtPhone.Text;
+        data.Status = txtStatus.Checked ? true : false;
         return data;
     }
 
@@ -108,16 +118,32 @@ public partial class Admin_EditAccount : System.Web.UI.Page
             }
             bool rs = false;
             // Lay du lieu tu form            
-            tblCategory data = GetData();
+            tblAccount data = GetData();
             // ID > 0 ==> Cap nhat va hien thong bao    
             if (data.ID > 0)
             {
-                rs = tblCategory.Update(data);
-                lblStatus.Text = rs ? "Cập nhật thành công." : "Cập nhật lỗi.";
+                if (txtPassword.Text == "")
+                {
+                    lblStatus.Text = "Bạn chưa nhập mật khẩu.";
+                }
+                else
+                {
+                    if (Common.MaHoapass(txtPassword.Text) != data.Password)
+                    {
+                        lblStatus.Text = "Mật khẩu không đúng.";
+                    }
+                    else
+                    {
+                        rs = tblAccount.Update(data);
+                        lblStatus.Text = rs ? "Cập nhật thành công." : "Cập nhật lỗi.";
+
+                    }
+
+                }
             }
             else
             {
-                rs = tblCategory.Add(data);
+                rs = tblAccount.Add(data);
                 lblStatus.Text = rs ? "Thêm mới thành công." : "Thêm mới lỗi.";
                 // Neu them thanh cong thi xoa trang form de them tiep               
                 if (rs)
