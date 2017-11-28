@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Adminsite.master" AutoEventWireup="true" CodeFile="Order.aspx.cs" Inherits="Admin_Order" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Adminsite.master" AutoEventWireup="true" CodeFile="OrderDetail.aspx.cs" Inherits="Admin_OrderDetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Table" Runat="Server">
     <div class="col-lg-12">
@@ -19,10 +19,10 @@
                                 <input type="checkbox" id="chkAll" />
                             </th>
                             <th>Mã số</th>
-                            <th>Tổng tiền</th>
+                            <th>Mã Hóa Đơn</th>
+                            <th>Mã món ăn</th>
                             <th>Số lượng</th>
-                            <th>Tài khoản</th>
-                            <th>Ngày đặt bàn</th>
+                            <th>Giá</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,11 +32,10 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td class="link"><a href='OrderDetail.aspx?cid=<%#Eval("ID") %>'><%#Eval("TotalPrice") %></a></td>
+                                    <td><%# Eval("OrderID") %></td>
+                                    <td><%# Eval("ProductID") %></td>
                                     <td><%# Eval("Quantity") %></td>
-                                    
-                                    <td><%# Eval("AccountID") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("Price") %></td>
                                 </tr>
                             </AlternatingItemTemplate>
                             <ItemTemplate>
@@ -44,11 +43,10 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td class="link"><a href='OrderDetail.aspx?cid=<%#Eval("ID") %>'><%#Eval("TotalPrice") %></a></td>
+                                    <td><%# Eval("OrderID") %></td>
+                                    <td><%# Eval("ProductID") %></td>
                                     <td><%# Eval("Quantity") %></td>
-                                    
-                                    <td><%# Eval("AccountID") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("Price") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
