@@ -12,7 +12,7 @@ namespace DataAccess.Classes
         public string Email { get; set; }
 
         public string Password { get; set; }
-        
+
 
         public string TypeName { get; set; }
 
@@ -48,8 +48,17 @@ namespace DataAccess.Classes
         {
             try
             {
-                object rs = DataProvider.Instance.ExecuteNonQueryWithOutput("@ID", "SP_Insert_tblAccount",
-                    account.ID,account.Email,account.Password,account.TypeName,account.Name,account.Avatar,account.Address,account.Phone,account.Status);
+                object rs = DataProvider.Instance.ExecuteNonQueryWithOutput("@ID", "[dbo].[SP_Insert_tblAccount]",
+                    account.ID,
+                    account.Email,
+                    account.Password,
+                    Convert.ToInt32(account.TypeName),
+                    account.Name,
+                    account.Avatar,
+                    account.Address,
+                    account.Phone,
+                    account.Status
+                    );
                 return Convert.ToInt32(rs) > 0;
             }
             catch
@@ -62,7 +71,7 @@ namespace DataAccess.Classes
             try
             {
                 int rs = DataProvider.Instance.ExecuteNonQuery("SP_Update_tblAccount",
-                    account.ID, account.Email, account.Password, account.TypeName, account.Name, account.Avatar, account.Address, account.Phone, account.Status);
+                    account.ID, account.Email, account.Password, Convert.ToInt32(account.TypeName), account.Name, account.Avatar, account.Address, account.Phone, account.Status);
                 return rs > 0;
             }
             catch
@@ -82,6 +91,15 @@ namespace DataAccess.Classes
             {
                 return false;
             }
+        }
+
+        public static tblAccount Single(string id)
+        {
+            try
+            {
+                return CBO.FillObject<tblAccount>(DataProvider.Instance.ExecuteReader("SP_Account_Single", Convert.ToInt32(id)));
+            }
+            catch (Exception) { return null; }
         }
     }
 }

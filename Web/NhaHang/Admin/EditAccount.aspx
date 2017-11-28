@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label>Mật khẩu:</label>
-                        <asp:TextBox runat="server" ID="txtPassword" CssClass="textEntry form-control" />
+                        <asp:TextBox runat="server" ID="txtPassword" CssClass="textEntry form-control" TextMode="Password" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ErrorMessage="Hãy nhập mật khẩu" ControlToValidate="txtPassword" SetFocusOnError="true" Display="Static" CssClass="failureNotification" runat="server" />
                     </div>
                     <div class="form-group">
@@ -43,16 +43,22 @@
                     <div class="form-group">
                         <label>Địa chỉ:</label>
                         <asp:TextBox runat="server" ID="txtAddress" CssClass="textEntry form-control" />
-                        
+
                     </div>
                     <div class="form-group">
                         <label>Số điện thoại:</label>
                         <asp:TextBox runat="server" ID="txtPhone" CssClass="textEntry form-control" />
-                        
+
                     </div>
                     <div class="form-group">
                         <label>Trạng thái:</label>
-                        <asp:RadioButton ID="txtStatus" runat="server" /> Kích hoạt
+                        <label class="radio-inline">
+                            <asp:RadioButton GroupName="status" ID="txtStatus" runat="server" /> Kích hoạt
+                        </label>
+                        <label class="radio-inline">
+                            <asp:RadioButton GroupName="status"  ID="txtStatusFalse" runat="server" /> Hủy Kích hoạt
+                        </label>
+                        
                     </div>
                     <div class="form-group">
                         <asp:Button Text="Lưu" runat="server" ID="btnSave" CssClass="btn btn-success" />
