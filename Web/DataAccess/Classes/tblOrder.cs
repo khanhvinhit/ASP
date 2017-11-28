@@ -19,7 +19,7 @@ namespace DataAccess.Classes
 
         public static List<tblOrder> Get_All()
         {
-            return CBO.FillCollection<tblOrder>(DataProvider.Instance.ExecuteReader("SP_Select_Order"));
+            return CBO.FillCollection<tblOrder>(DataProvider.Instance.ExecuteReader("SP_Select_tblOrder"));
         }
     }
 }
