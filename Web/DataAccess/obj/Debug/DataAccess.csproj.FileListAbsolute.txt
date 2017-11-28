@@ -10,3 +10,4 @@ C:\Users\Nguyenvan\Desktop\ASP\Web\DataAccess\bin\Debug\Core.dll
 C:\Users\Nguyenvan\Desktop\ASP\Web\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\Nguyenvan\Desktop\ASP\Web\DataAccess\obj\Debug\DataAccess.pdb
 C:\Users\Nguyenvan\Desktop\ASP\Web\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+D:\GITHUB\ASP\Web\DataAccess\bin\Debug\DataAccess.dll.config

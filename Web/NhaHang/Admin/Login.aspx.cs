@@ -41,7 +41,7 @@ public partial class Admin_Login : System.Web.UI.Page
                     tblAccount account = tblAccount.Get_Accounts_By_Email(email);
                     Session["id"] = account.ID;
                     Session["email"] = account.Email;
-                    Session["type"] = account.Type;
+                    Session["type"] = account.TypeName;
                     Session["name"] = account.Name;
                     Session["avatar"] = account.Avatar;
 
