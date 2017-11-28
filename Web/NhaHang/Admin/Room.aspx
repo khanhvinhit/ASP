@@ -9,7 +9,7 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="well">
-                    <input type="button" class="btn btn-primary" value="Thêm mới" onclick="location.href = 'EditCategory.aspx'" />
+                    <input type="button" class="btn btn-primary" value="Thêm mới" onclick="location.href = 'EditRoom.aspx'" />
                     <asp:Button Text="Xóa" runat="server" ID="btnDelete" CssClass="multidelete btn btn-danger" />
                 </div>
                 <table width="100%" class="table table-striped table-bordered table-hover list" id="dataTables-example">
@@ -34,10 +34,10 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td class="link"><a href='EditCategory.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
+                                    <td class="link"><a href='EditRoom.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
                                     <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
                                     <td><%# Eval("About") %></td>
-                                    <td><%# Eval("Type") %></td>
+                                    <td><%# Eval("TypeName") %></td>
                                     <td><%# Eval("CreateDate") %></td>
                                     <td><%# Eval("AccountID") %></td>
                                 </tr>
@@ -47,10 +47,10 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td class="link"><a href='EditCategory.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
+                                    <td class="link"><a href='EditRoom.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
                                     <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
                                     <td><%# Eval("About") %></td>
-                                    <td><%# Eval("Type") %></td>
+                                    <td><%# Eval("TypeName") %></td>
                                     <td><%# Eval("CreateDate") %></td>
                                     <td><%# Eval("AccountID") %></td>
                                 </tr>
