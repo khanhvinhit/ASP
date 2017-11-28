@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess.Classes;
 
-public partial class Admin_Order : System.Web.UI.Page
+public partial class Admin_OrderDetail : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,8 +25,9 @@ public partial class Admin_Order : System.Web.UI.Page
 
     private void PopulateControls()
     {
+        string cid = Request.QueryString["cid"] ?? "";
         ListTable.Controls.Clear();
-        ListTable.DataSource = tblOrder.Get_All();
+        ListTable.DataSource = tblOrderDeails.Get_All_By_OrderID(cid);
         ListTable.DataBind();
     }
 
@@ -41,7 +42,7 @@ public partial class Admin_Order : System.Web.UI.Page
         string stringid = Request.Form["cid"] ?? "";
         if (stringid != "")
         {
-            foreach (string id in stringid.Split(',')) tblCategory.Delete(id); PopulateControls();
+            foreach (string id in stringid.Split(',')) tblOrderDeails.Delete(id); PopulateControls();
 
         }
     }
