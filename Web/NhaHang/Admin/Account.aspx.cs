@@ -30,4 +30,20 @@ public partial class Admin_Account : System.Web.UI.Page
         ListTable.DataSource = tblAccount.Get_All_Accounts();
         ListTable.DataBind();
     }
+
+    protected override void OnInit(EventArgs e)
+    {
+        base.OnInit(e);
+        btnDelete.Click += new EventHandler(btnDelete_Click);
+    }
+
+    void btnDelete_Click(object sender, EventArgs e)
+    {
+        string stringid = Request.Form["cid"] ?? "";
+        if (stringid != "")
+        {
+            foreach (string id in stringid.Split(',')) tblAccount.Delete(id); PopulateControls();
+
+        }
+    }
 }
