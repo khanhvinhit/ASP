@@ -12,5 +12,10 @@ namespace DataAccess.Classes
 
         public string Name { get; set; }
 
+
+        public static List<tblAccountType> Get_All()
+        {
+            return CBO.FillCollection<tblAccountType>(DataProvider.Instance.ExecuteReader("SP_Select_tblAccountType"));
+        }
     }
 }
