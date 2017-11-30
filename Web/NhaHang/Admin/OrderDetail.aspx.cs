@@ -26,24 +26,12 @@ public partial class Admin_OrderDetail : System.Web.UI.Page
     private void PopulateControls()
     {
         string cid = Request.QueryString["cid"] ?? "";
+        if (cid == null)
+        {
+            Response.Redirect("Default.aspx");
+        }
         ListTable.Controls.Clear();
         ListTable.DataSource = tblOrderDeails.Get_All_By_OrderID(cid);
         ListTable.DataBind();
-    }
-
-    protected override void OnInit(EventArgs e)
-    {
-        base.OnInit(e);
-        btnDelete.Click += new EventHandler(btnDelete_Click);
-    }
-
-    void btnDelete_Click(object sender, EventArgs e)
-    {
-        string stringid = Request.Form["cid"] ?? "";
-        if (stringid != "")
-        {
-            foreach (string id in stringid.Split(',')) tblOrderDeails.Delete(id); PopulateControls();
-
-        }
     }
 }
