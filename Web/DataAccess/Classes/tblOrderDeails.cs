@@ -11,15 +11,17 @@ namespace DataAccess.Classes
 
         public int? OrderID { get; set; }
 
-        public int? ProductID { get; set; }
+        public string ProductName { get; set; }
+
+        public decimal? UnitPrice { get; set; }
 
         public int? Quantity { get; set; }
 
         public decimal? Price { get; set; }
 
-        public static List<tblCategory> Get_All_By_OrderID(string oderDetailID)
+        public static List<tblOrderDeails> Get_All_By_OrderID(string oderDetailID)
         {
-            return CBO.FillCollection<tblCategory>(DataProvider.Instance.ExecuteReader("Get_All_By_OrderID", Convert.ToInt32(oderDetailID)));
+            return CBO.FillCollection<tblOrderDeails>(DataProvider.Instance.ExecuteReader("SP_Select_tblOrderDeails_By_OrderID", Convert.ToInt32(oderDetailID)));
         }
 
         public static bool Delete(string oderDetailID)
