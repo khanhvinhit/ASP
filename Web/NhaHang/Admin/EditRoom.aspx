@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <asp:Button Text="Lưu" runat="server" ID="btnSave" CssClass="btn btn-success" />
-                        <input type="button" value="Hủy" onclick="location.href = 'Category.aspx'" class="btn btn-default" />
+                        <input type="button" value="Hủy" onclick="location.href = 'Room.aspx'" class="btn btn-default" />
                         <input type="reset" value="Reset" runat="server" id="btnReset" class="btn btn-warning" />
                     </div>
                 </div>
