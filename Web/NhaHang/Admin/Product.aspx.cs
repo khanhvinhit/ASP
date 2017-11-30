@@ -29,4 +29,20 @@ public partial class Admin_Product : System.Web.UI.Page
         ListTable.DataSource = tblProduct.Get_All();
         ListTable.DataBind();
     }
+
+    protected override void OnInit(EventArgs e)
+    {
+        base.OnInit(e);
+        btnDelete.Click += new EventHandler(btnDelete_Click);
+    }
+
+    void btnDelete_Click(object sender, EventArgs e)
+    {
+        string stringid = Request.Form["cid"] ?? "";
+        if (stringid != "")
+        {
+            foreach (string id in stringid.Split(',')) tblProduct.Delete(id); PopulateControls();
+
+        }
+    }
 }
