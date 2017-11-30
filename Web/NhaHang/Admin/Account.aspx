@@ -34,7 +34,7 @@
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
                                     <td class="link"><a href='EditAccount.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
-                                    <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Avatar") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
+                                    <td style="text-align: center"><img src="/Content/img/Avatar/<%# Eval("Avatar") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
                                     <td><%# Eval("Email") %></td>
                                     <td><%# Eval("TypeName") %></td>
                                     <td><%# Eval("Status") %></td>
@@ -46,7 +46,7 @@
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
                                     <td class="link"><a href='EditAccount.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
-                                    <td style="text-align: center"><img src="/Admin/Images/<%# Eval("Avatar") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
+                                    <td style="text-align: center"><img src="/Content/img/Avatar/<%# Eval("Avatar") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
                                     <td><%# Eval("Email") %></td>
                                     <td><%# Eval("TypeName") %></td>
                                     <td><%# Eval("Status") %></td>
