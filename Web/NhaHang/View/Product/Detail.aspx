@@ -62,11 +62,11 @@
                                                     <h6>Giá: <strong style="color: #FF4000"><%# Eval("Price") %> </strong>VND
                                                     </h6>
                                                 </div>
-                                                <div class="float-right col col-sm-4">
+                                                <div class="float-right col col-sm-8">
                                                     <div class="col-sm-6 float-left">
                                                         <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Xem sau</button>
                                                     </div>
-                                                    <div class="col-sm-4 float-left">
+                                                    <div class="col-sm-6 float-left">
                                                         <input type="submit" value="Đặt món" id="btnGioHang" class="btn btn-block btn-info" />
                                                     </div>
                                                 </div>
