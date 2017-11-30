@@ -49,7 +49,7 @@ public partial class Admin_EditCategory : System.Web.UI.Page
 
             // Gan cac thong tin con lai vao form             
             txtName.Text = data.Name;
-            Image1.ImageUrl = "/Admin/Images/" + data.Image;
+            Image1.ImageUrl = "/Content/img/Category/" + data.Image;
             btnReset.Visible = false;
         }
         else
@@ -92,7 +92,7 @@ public partial class Admin_EditCategory : System.Web.UI.Page
         {
             if (FileUpload1.HasFile && CheckFileType(FileUpload1.FileName))
             {
-                string fileName = "/Admin/Images/" + DateTime.Now.ToString("ddMMyyyy_") +txtName.Text +Path.GetExtension(FileUpload1.FileName);
+                string fileName = "/Content/img/Category/" + DateTime.Now.ToString("ddMMyyyy_") +txtName.Text +Path.GetExtension(FileUpload1.FileName);
                 string filePath = MapPath(fileName);
                 FileUpload1.SaveAs(filePath);
                 Image1.ImageUrl = fileName;
