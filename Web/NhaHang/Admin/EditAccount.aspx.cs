@@ -62,7 +62,7 @@ public partial class Admin_EditAccount : System.Web.UI.Page
             txtAddress.Text = data.Address;
             txtPhone.Text = data.Phone;
             txtStatus.Checked = data.Status == true ? true : false;
-            Image1.ImageUrl = "/Admin/Images/Avatar/" + data.Avatar;
+            Image1.ImageUrl = "/Content/img/Avatar/" + data.Avatar;
             btnReset.Visible = false;
         }
         else
@@ -110,7 +110,7 @@ public partial class Admin_EditAccount : System.Web.UI.Page
         {
             if (FileUpload1.HasFile && CheckFileType(FileUpload1.FileName))
             {
-                string fileName = "/Admin/Images/Avatar/" + DateTime.Now.ToString("ddMMyyyy_") + txtName.Text + Path.GetExtension(FileUpload1.FileName);
+                string fileName = "/Content/img/Avatar/" + DateTime.Now.ToString("ddMMyyyy_") + txtName.Text + Path.GetExtension(FileUpload1.FileName);
                 string filePath = MapPath(fileName);
                 FileUpload1.SaveAs(filePath);
                 Image1.ImageUrl = fileName;

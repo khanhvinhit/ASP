@@ -9,7 +9,7 @@
             <!-- /.panel-heading -->
             <div class="panel-body">
                 <div class="well">
-                    <input type="button" class="btn btn-primary" value="Thêm mới" onclick="location.href = 'EditCategory.aspx'" />
+                    <input type="button" class="btn btn-primary" value="Thêm mới" onclick="location.href = 'EditAbout.aspx'" />
                     <asp:Button Text="Xóa" runat="server" ID="btnDelete" CssClass="multidelete btn btn-danger" />
                 </div>
                 <table width="100%" class="table table-striped table-bordered table-hover list" id="dataTables-example">
