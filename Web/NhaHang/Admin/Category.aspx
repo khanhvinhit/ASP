@@ -34,8 +34,8 @@
                                     <td><%#Eval("ID") %></td>
                                     <td class="link"><a href='EditCategory.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
                                     <td style="text-align: center"><img src="/Content/img/Category/<%# Eval("Image") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
-                                    <td><%# Eval("CreateDate") %></td>
-                                    <td><%# Eval("AccountID") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                 </tr>
                             </AlternatingItemTemplate>
                             <ItemTemplate>
@@ -45,8 +45,8 @@
                                     <td><%#Eval("ID") %></td>
                                     <td class="link"><a href='EditCategory.aspx?cid=<%#Eval("ID") %>'><%#Eval("Name") %></a></td>
                                     <td style="text-align: center"><img src="/Content/img/Category/<%# Eval("Image") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
-                                    <td><%# Eval("CreateDate") %></td>
-                                    <td><%# Eval("AccountID") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
