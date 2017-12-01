@@ -24,6 +24,7 @@
                             <th>Số điện thoại</th>
                             <th>Tài khoản</th>
                             <th>Ngày tạo</th>
+                            <th>Người tạo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,7 +39,8 @@
                                     <td><%# Eval("Email") %></td>
                                     <td><%# Eval("Phone1") %></td>
                                     <td><%# Eval("AccountID") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                 </tr>
                             </AlternatingItemTemplate>
                             <ItemTemplate>
@@ -51,7 +53,8 @@
                                     <td><%# Eval("Email") %></td>
                                     <td><%# Eval("Phone1") %></td>
                                     <td><%# Eval("AccountID") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
