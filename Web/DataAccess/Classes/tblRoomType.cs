@@ -12,6 +12,7 @@ namespace DataAccess.Classes
         public string Name { get; set; }
 
         public int? AccountID { get; set; }
+        public string AccountName { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
