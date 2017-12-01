@@ -38,8 +38,8 @@
                                     <td style="text-align: center"><img src="/Content/img/Room/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
                                     <td><%# Eval("About") %></td>
                                     <td><%# Eval("TypeName") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
-                                    <td><%# Eval("AccountID") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                 </tr>
                             </AlternatingItemTemplate>
                             <ItemTemplate>
@@ -51,8 +51,8 @@
                                     <td style="text-align: center"><img src="/Content/img/Room/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>"/></td>
                                     <td><%# Eval("About") %></td>
                                     <td><%# Eval("TypeName") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
-                                    <td><%# Eval("AccountID") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

@@ -18,11 +18,13 @@
                                 <input type="checkbox" id="chkAll" />
                             </th>
                             <th>Mã số</th>
-                            <th>Tài khoản</th>
+                            
                             <th>Ngày đặt bàn</th>
                             <th>Số lượng</th>
                             <th>Tổng tiền</th>
+                            <th>Tài khoản</th>
                             <th>Tùy chọn</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -32,10 +34,10 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td><%# Eval("AccountID") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
                                     <td><%# Eval("Quantity") %></td>
                                     <td><%#Eval("TotalPrice") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                     <td><a href='OrderDetail.aspx?cid=<%#Eval("ID") %>'>Xem chi tiết</a></td>
                                 </tr>
                             </AlternatingItemTemplate>
@@ -44,10 +46,10 @@
                                     <td style="text-align: center">
                                         <input type="checkbox" value='<%#Eval("ID") %>' name="cid" id="cid" /></td>
                                     <td><%#Eval("ID") %></td>
-                                    <td><%# Eval("AccountID") %></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
                                     <td><%# Eval("Quantity") %></td>
                                     <td><%#Eval("TotalPrice") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                     <td><a href='OrderDetail.aspx?cid=<%#Eval("ID") %>'>Xem chi tiết</a></td>
                                 </tr>
                             </ItemTemplate>
