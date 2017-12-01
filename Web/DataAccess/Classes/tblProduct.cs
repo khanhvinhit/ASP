@@ -27,6 +27,7 @@ namespace DataAccess.Classes
         public DateTime? CreateDate { get; set; }
 
         public int? AccountID { get; set; }
+        public string AccountName { get; set; }
         public tblProduct()
         {
 

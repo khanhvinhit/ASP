@@ -23,6 +23,7 @@
                             <th>Thực đơn</th>
                             <th>Hình</th>
                             <th>Ngày tạo</th>
+                            <th>Người tạo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -37,7 +38,9 @@
                                     <td><%# Eval("CategoryName") %></td>
                                     <td style="text-align: center">
                                         <img src="/Content/img/MonAn/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>" /></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
+                                    
                                 </tr>
                             </AlternatingItemTemplate>
                             <ItemTemplate>
@@ -50,7 +53,8 @@
                                     <td><%# Eval("CategoryName") %></td>
                                     <td style="text-align: center">
                                         <img src="/Content/img/MonAn/<%# Eval("Images") %>" width="30" height="30" alt="<%#Eval("Name") %>" /></td>
-                                    <td><%# Eval("CreateDate") %></td>
+                                    <td><%# Eval("CreateDate", "{0:dd/MM/yyyy}") %></td>
+                                    <td><%# Eval("AccountName") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
