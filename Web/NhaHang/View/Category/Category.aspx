@@ -31,6 +31,19 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><asp:HyperLink ID="hlPagePre" runat="server">Previous</asp:HyperLink></li>
+                <asp:Repeater ID="rpPage" runat="server" OnItemDataBound="rpPage_ItemDataBound">                    
+                    <ItemTemplate>                        
+                        <li class="page-item" id="li">
+                            <asp:HyperLink ID="hlPage" runat="server">p</asp:HyperLink>
+                        </li>
+                    </ItemTemplate>                  
+                </asp:Repeater>
+                <li class="page-item"><asp:HyperLink ID="hlPageNe" runat="server" >Next</asp:HyperLink></li>
+            </ul>
+        </nav>
     </div>
     <uc1:TopFood runat="server" ID="TopFood" />
 </asp:Content>
