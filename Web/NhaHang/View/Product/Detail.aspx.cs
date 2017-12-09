@@ -41,25 +41,6 @@ public partial class View_Product_Detail : System.Web.UI.Page
         int id = Convert.ToInt32(Request["id"]);
         rpNameCategory.DataSource = tblCategory.NameCategory(id);
         rpNameCategory.DataBind();
-        //PagedDataSource pageSource = new PagedDataSource();
-        //pageSource.AllowPaging = true;
-        //pageSource.PageSize = pageSize;
-        //pageSource.CurrentPageIndex = this.CurrentPage;
-        //if (pageSource.PageCount > 1)
-        //{
-        //    rpPage.Visible = true;
-        //    ArrayList pages = new ArrayList();
-        //    for (int i = 0; i <= pageSource.PageCount - 1; i++)
-        //    {
-        //        pages.Add((i + 1).ToString());
-        //    }
-        //    rpPage.DataSource = pages;
-        //    rpPage.DataBind();
-        //}
-        //else
-        //{
-        //    rpPage.Visible = false;
-        //}
         rpDetail.DataSource = tblProduct.Detail(id);
         rpDetail.DataBind();
     }
