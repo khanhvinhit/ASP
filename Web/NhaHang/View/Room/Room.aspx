@@ -1,108 +1,63 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/View/layout/site1.master" AutoEventWireup="true" CodeFile="Room.aspx.cs" Inherits="View_Room_Room" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'/>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
     <link href="../../Content/css/Room.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <asp:Repeater ID="room" runat="server">
-        <ItemTemplate> 
-            <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <!-- begin panel group -->
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                
-                <!-- panel 1 -->
-                <div class="panel panel-default">
-                    <!--wrap panel heading in span to trigger image change as well as collapse -->
-                    <span class="side-tab" data-target="#tab1" data-toggle="tab" role="tab" aria-expanded="false">
-                        <div class="panel-heading" role="tab" id="headingOne"data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <h4 class="panel-title">She Sells Seashells</h4>
-                        </div>
-                    </span>
-                    
-                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                        <!-- Tab content goes here -->
-                        That fall, as Nadia and Masha got shipped off to prison camps in Siberia, South Brooklyn tried to recover from the storm. My dad and I spent a lot of time in the same apartment engrossed in separate laptops, separate internet missives. He followed Russian news bloggers closely and would update me on troubling developments. A rise in protofascist nationalism
-                        </div>
-                    </div>
-                </div> 
-                <!-- / panel 1 -->
-                
-                <!-- panel 2 -->
-                <div class="panel panel-default">
-                    <!--wrap panel heading in span to trigger image change as well as collapse -->
-                    <span class="side-tab" data-target="#tab2" data-toggle="tab" role="tab" aria-expanded="false">
-                        <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <h4 class="panel-title collapsed">TAB 2</h4>
-                        </div>
-                    </span>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="bg-faded p-4 my-4">
+        <hr class="divider" />
 
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                        <!-- Tab content goes here -->
-                        tab 2 content
-                        </div>
-                    </div>
-                </div>
-                <!-- / panel 2 -->
-                
-                <!--  panel 3 -->
-                <div class="panel panel-default">
-                    <!--wrap panel heading in span to trigger image change as well as collapse -->
-                    <span class="side-tab" data-target="#tab3" data-toggle="tab" role="tab" aria-expanded="false">
-                        <div class="panel-heading" role="tab" id="headingThree"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <h4 class="panel-title">TAB 3 </h4>
-                        </div>
-                    </span>
+        <h2 class="text-center text-lg text-uppercase my-0"><strong>Không Gian Nhà Hàng</strong><a href="../Category/Category.aspx"><span class="badge badge-danger">Quay Lại</span></a>
+        </h2>
 
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                          <div class="panel-body">
-                          <!-- tab content goes here -->
-                           tab 3 content
-                          </div>
-                        </div>
-                      </div>
-            </div> <!-- / panel-group -->
-             
-        </div> <!-- /col-md-4 -->
-        
-        <div class="col-md-8">
-            <!-- begin macbook pro mockup -->
-            <div class="md-macbook-pro md-glare">
-                <div class="md-lid">
-                    <div class="md-camera"></div>
-                    <div class="md-screen">
-                    <!-- content goes here -->                
-                        <div class="tab-featured-image">
-                            <div class="tab-content">
-                                <div class="tab-pane  in active" id="tab1">
-                                        <img src="https://ununsplash.imgix.net/photo-1417024321782-1375735f8987?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950" alt="tab1" class="img img-responsive">
+        <hr class="divider" />
+        <asp:Repeater ID="room" runat="server">
+            <ItemTemplate>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" role="tab" id="heading-<%# Eval("ID") %>">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapse-<%# Eval("ID") %>" aria-expanded="false" aria-controls="collapse-<%# Eval("ID") %>">
+                                            <%# Eval("Name") %>
+                                        </a>
+                                    </h5>
                                 </div>
-                                <div class="tab-pane " id="tab2">
-                                    
-                                        <img src="https://unsplash.imgix.net/uploads/1411724908903377d4696/2e9b0cb2?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950">
-                                    
-                                </div>
-                                <div class="tab-pane fade" id="tab3">
-                                    
-                                        <img src="https://ununsplash.imgix.net/photo-1422479516648-9b1f0b6e8da8?dpr=2&fit=crop&fm=jpg&h=650&q=75&w=950" alt="tab1" class="img img-responsive">
+                                <div id="collapse-<%# Eval("ID") %>" class="collapse" role="tabpanel" aria-labelledby="heading-<%# Eval("ID") %>" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <%# Eval("About") %>
+                                    </div>
+
                                 </div>
                             </div>
+
+                            <!-- begin macbook pro mockup -->
+                            <div class="md-macbook-pro md-glare">
+                                <div class="md-lid">
+                                    <div class="md-camera"></div>
+                                    <div class="md-screen">
+                                        <!-- content goes here -->
+                                        <div class="tab-featured-image">
+                                            <div class="tab-content">
+                                                <div class="tab-pane  in active" >
+                                                    <img class="card-img-top" src="../../Content/img/<%# Eval("Images") %>"  alt="Card image cap"  />
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="md-base"></div>
+                            </div>
+                            <!-- end macbook pro mockup -->
                         </div>
                     </div>
                 </div>
-                <div class="md-base"></div>
-            </div> <!-- end macbook pro mockup -->
 
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
 
-
-        </div> <!-- / .col-md-8 -->
-    </div> <!--/ .row -->
-</div> <!-- end sidetab container -->
-        </ItemTemplate>
-    </asp:Repeater>
 </asp:Content>
-
