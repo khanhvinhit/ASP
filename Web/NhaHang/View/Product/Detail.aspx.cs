@@ -84,5 +84,9 @@ public partial class View_Product_Detail : System.Web.UI.Page
             }
             hlPage.NavigateUrl = "../Product/Detail.aspx?id=" + id + "&page=" +(e.Item.ItemIndex + 1);
         }
+        rpNameCategory.DataSource = tblCategory.NameCategory(id);
+        rpNameCategory.DataBind();
+        rpDetail.DataSource = tblProduct.Detail(id);
+        rpDetail.DataBind();
     }
 }
