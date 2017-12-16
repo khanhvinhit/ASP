@@ -80,9 +80,9 @@ public partial class View_Order_Order : System.Web.UI.Page
                 string id = dr["ID"].ToString();
                 string quantity = dr["QuanTiTy"].ToString();
                 string total = dr["TotalPrice"].ToString();
-                Dat_Hang(total,quantity,id);
+                Dat_Hang(total, quantity, id);
             }
-            
+            Response.Redirect(Request.RawUrl);
         }
     }
 
@@ -91,19 +91,29 @@ public partial class View_Order_Order : System.Web.UI.Page
         tblOrder or = new tblOrder()
         {
             TotalPrice = decimal.Parse(total),
+            Quantity = int.Parse(quantity),
             AccountID = (int)Session["idCus"],
-            Quantity = int.Parse(quantity)
+            AccountName = "",
+            CreateDate = DateTime.Now
         };
         int rs = tblOrder.Add(or);
-        tblOrderDeails orderDeails = new tblOrderDeails()
+        if (rs > 0)
         {
-            OrderID = rs,
-            Price = decimal.Parse(total),
-            Quantity = int.Parse(quantity),
-            ProductID = int.Parse(id)
-        };
+            tblOrderDeails orderDeails = new tblOrderDeails()
+            {
+                OrderID = rs,
+                Price = decimal.Parse(total),
+                Quantity = int.Parse(quantity),
+                ProductID = int.Parse(id)
+            };
 
-        bool rp = tblOrderDeails.Add(orderDeails);
-        lblStatus.Text = rp ? "Đặt hàng thành công." : "Đặt hàng lỗi.";
+            bool rp = tblOrderDeails.Add(orderDeails);
+            lblStatus.Text = rp ? "Đặt hàng thành công." : "Đặt hàng lỗi.";
+            if (rp)
+            {
+                Session["cart"] = null;
+            }
+            
+        }
     }
 }

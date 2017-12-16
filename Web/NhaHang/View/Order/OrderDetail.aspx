@@ -16,10 +16,10 @@
                         <asp:Label runat="server" ID="lblStatus" CssClass="status" /></h3>
                 <asp:GridView ID="GridView1" CssClass="table" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="ID" EnableModelValidation="True" OnRowDeleting="GridView1_RowDeleting" OnSelectedIndexChanging="GridView1_SelectedIndexChanging" Width="100%">
                     <Columns>
-                        <asp:BoundField DataField="ID" HeaderText="Mã Sản Phẩm">
+                        <asp:BoundField DataField="ID" HeaderText="Mã">
                             <HeaderStyle HorizontalAlign="Left" />
                         </asp:BoundField>
-                        <asp:BoundField DataField="Name" HeaderText="Tên Sản Phẩm">
+                        <asp:BoundField DataField="Name" HeaderText="Tên Món">
                             <HeaderStyle HorizontalAlign="Left" />
                         </asp:BoundField>
                         <asp:TemplateField HeaderText="Số Lượng">
