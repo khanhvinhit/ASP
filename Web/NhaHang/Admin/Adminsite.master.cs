@@ -9,6 +9,7 @@ public partial class Admin_Adminsite : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        
         txtName.Text = Session["Name"].ToString();
     }
     
