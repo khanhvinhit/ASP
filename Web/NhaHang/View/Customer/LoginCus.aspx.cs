@@ -1,34 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Configuration;
-using DataAccess.Classes;
 using DataAccess;
+using DataAccess.Classes;
+using System.Data;
 
-public partial class Admin_Login : System.Web.UI.Page
+public partial class View_Customer_LoginCus : System.Web.UI.Page
 {
-	protected void Page_Load(object sender, EventArgs e)
-	{
-        
-        if (Session["email"] != null && Session["typeID"].GetHashCode() == 1 || Session["typeID"].GetHashCode() == 2)
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session["idCus"] != null)
         {
-            Response.Redirect("Default.aspx");
-        }txtEmail.Focus();
+            Response.Redirect("/View/home/Default.aspx");
+        }
     }
-    
-    protected void btnLogin_Click(object sender, EventArgs e)
-	{
-		KiemTraNhap(txtEmail.Text + "", Common.MaHoapass(txtPassword.Text).Trim());
-	}
 
-    private void KiemTraNhap(string email, string pass)
+    protected void btnLogin_Click(object sender, EventArgs e)
+    {
+        KiemTra(txtEmail.Text + "", Common.MaHoapass(txtPassword.Text).Trim());
+    }
+    private void KiemTra(string email,string pass)
     {
         DataTable dt = tblAccount.Check_Login(email, pass).Tables[0];
         int num = 0;
@@ -39,14 +33,11 @@ public partial class Admin_Login : System.Web.UI.Page
             {
                 case 0: // Khai báo Session cho phép đăng nhập
                     tblAccount account = tblAccount.Get_Accounts_By_Email(email);
-                    Session["id"] = account.ID;
-                    Session["email"] = account.Email;
-                    Session["type"] = account.TypeName;
-                    Session["typeID"] = account.TypeID;
-                    Session["name"] = account.Name;
-                    Session["avatar"] = account.Avatar;
-
-                    Response.Redirect("Default.aspx");
+                    Session["idCus"] = account.ID;
+                    Session["emailCus"] = account.Email;
+                    Session["typeidCus"] = account.TypeID;
+                    Session["nameCus"] = account.Name;
+                    Response.Redirect("/View/home/Default.aspx");
                     break;
                 case 1: //Thông báo tên đăng nhập không tồn tại
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe", "alert('Lỗi: Tên đăng nhập không tồn tại');", true);

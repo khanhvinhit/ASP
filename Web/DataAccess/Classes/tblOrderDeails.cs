@@ -12,6 +12,7 @@ namespace DataAccess.Classes
         public int? OrderID { get; set; }
 
         public string ProductName { get; set; }
+        public int ProductID { get; set; }
 
         public decimal? UnitPrice { get; set; }
 
@@ -22,6 +23,22 @@ namespace DataAccess.Classes
         public static List<tblOrderDeails> Get_All_By_OrderID(string oderDetailID)
         {
             return CBO.FillCollection<tblOrderDeails>(DataProvider.Instance.ExecuteReader("SP_Select_tblOrderDeails_By_OrderID", Convert.ToInt32(oderDetailID)));
+        }
+
+
+        public static bool Add(tblOrderDeails orderDeails)
+        {
+            try
+            {
+                object rs = DataProvider.Instance.ExecuteNonQueryWithOutput("@ID", "SP_Insert_tblOrderDeails",
+                    orderDeails.OrderID,orderDeails.ProductID,orderDeails.Quantity,orderDeails.Price
+                    );
+                return Convert.ToInt32(rs) > 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public static bool Delete(string oderDetailID)
