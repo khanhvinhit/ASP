@@ -15,7 +15,9 @@ namespace DataAccess.Classes
 
 
         public string TypeName { get; set; }
+        public int TypeID { get; set; }
 
+        public int TypeID { get; set; }
         public string Name { get; set; }
 
         public string Avatar { get; set; }
@@ -52,7 +54,7 @@ namespace DataAccess.Classes
                     account.ID,
                     account.Email,
                     account.Password,
-                    Convert.ToInt32(account.TypeName),
+                    account.TypeName,
                     account.Name,
                     account.Avatar,
                     account.Address,

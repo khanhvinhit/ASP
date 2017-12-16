@@ -3,6 +3,7 @@
 <%@ Register Src="~/View/Product/TopFood.ascx" TagPrefix="uc1" TagName="TopFood" %>
 
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -24,8 +25,7 @@
                                 </p>
                                 <div>
                                     <div class="col-sm-6 float-left">
-                                            <input type="submit" value="đặt món" id="btngiohang" class="btn btn-info" />
-
+                                        <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
                                     </div>
                                     <div class="col-sm-5 float-left">
                                         <button style="font-family: 'Roboto Condensed', sans-serif" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg-6-<%# Eval("ID") %>">Xem Chi Tiết</button>
@@ -58,7 +58,7 @@
                                                         <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Xem sau</button>
                                                     </div>
                                                     <div class="col-sm-4 float-left">
-                                                        <input type="submit" value="Đặt món" id="btnGioHang" class="btn btn-block btn-info" />
+                                                        <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -71,7 +71,7 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-    </div> 
-    <uc1:TopFood runat="server" id="TopFood" />
+    </div>
+    <uc1:TopFood runat="server" ID="TopFood" />
 </asp:Content>
 
