@@ -2,84 +2,64 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+    
     <link href="../../Content/css/Room.css" rel="stylesheet" />
+<%--    <script src="../../Content/js/room.js"></script> --%> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="bg-faded p-4 my-4">
         <hr class="divider" />
-        <h2 class="text-center text-lg text-uppercase my-0">Giới  <strong>Thiệu</strong> <a href="/ThucDon?Length=8"><span class="badge badge-danger">Danh Sách phòng</span></a>
+
+        <h2 class="text-center text-lg text-uppercase my-0"><strong>Không Gian Nhà Hàng</strong><a href="../Category/Category.aspx"><span class="badge badge-danger">Quay Lại</span></a>
         </h2>
+
         <hr class="divider" />
-        <div class="row ">
+        <asp:Repeater ID="room" runat="server">
+            <ItemTemplate>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" role="tab" id="heading-<%# Eval("ID") %>">
+                                    <h5 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapse-<%# Eval("ID") %>" aria-expanded="false" aria-controls="collapse-<%# Eval("ID") %>">
+                                            <%# Eval("Name") %>
+                                        </a>
+                                    </h5>
+                                </div>
+                                <div id="collapse-<%# Eval("ID") %>" class="collapse" role="tabpanel" aria-labelledby="heading-<%# Eval("ID") %>" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <%# Eval("About") %>
+                                    </div>
 
-            <asp:Repeater ID="room" runat="server">
-                <ItemTemplate>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <!-- begin panel group -->
-                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                </div>
+                            </div>
 
-                                    <!-- panel 1 -->
-                                    <div class="panel panel-default">
-                                        <!--wrap panel heading in span to trigger image change as well as collapse -->
-                                        <span class="side-tab" data-target="#tab1" data-toggle="tab" role="tab" aria-expanded="false">
-                                            <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#" aria-expanded="true" aria-controls="collapseOne">
-                                                <h4 class="panel-title"><%# Eval("Name") %></h4>
-                                           <%--     <p><%# Eval("About") %></p>--%>
-                                            </div>
-                                        </span>
+                            <!-- begin macbook pro mockup -->
+                            <div class="md-macbook-pro md-glare">
+                                <div class="md-lid">
+                                    <div class="md-camera"></div>
+                                    <div class="md-screen">
+                                        <!-- content goes here -->
+                                        <div class="tab-featured-image">
+                                            <div class="tab-content">
+                                                <div class="tab-pane  in active" >
+                                                    <img class="card-img-top" src="../../Content/img/<%# Eval("Images") %>"  alt="Card image cap"  />
+                                                </div>
 
-                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                                            <div class="panel-body">
-                                                <!-- Tab content goes here -->
-                                                <p><%# Eval("About") %></p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                    <!--wrap panel heading in span to trigger image change as well as collapse -->
-                    <span class="side-tab" data-target="#tab2" data-toggle="tab" role="tab" aria-expanded="false">
-                        <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <h4 class="panel-title collapsed"><%# Eval("Name","Lầu dưới") %> </h4>
-                        </div>
-                    </span>
-
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                        <!-- Tab content goes here -->
-                        tầng  dưới gồm có tất cả 
+                                <div class="md-base"></div>
+                            </div>
+                            <!-- end macbook pro mockup -->
                         </div>
                     </div>
                 </div>
-                <!-- / panel 2 -->
-                
-                <!--  panel 3 -->
-                <div class="panel panel-default">
-                    <!--wrap panel heading in span to trigger image change as well as collapse -->
-                    <span class="side-tab" data-target="#tab3" data-toggle="tab" role="tab" aria-expanded="false">
-                        <div class="panel-heading" role="tab" id="headingThree"  class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <h4 class="panel-title">TAB 3 </h4>
-                        </div>
-                    </span>
-
-                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                          <div class="panel-body">
-                          <!-- tab content goes here -->
-                           tab 3 content
-                          </div>
-                        </div>
-                      </div>
-                            </div>
-                        </div>
-                        <!--/ .row -->
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
-
-        </div>
+              
+            </ItemTemplate>
+        </asp:Repeater>
     </div>
 
 </asp:Content>
-

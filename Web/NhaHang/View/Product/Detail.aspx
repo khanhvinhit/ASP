@@ -3,22 +3,22 @@
 <%@ Register Src="~/View/Product/TopFood.ascx" TagPrefix="uc1" TagName="TopFood" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <style>
-        #carouselExampleIndicators{
-            display:none;
+        #carouselExampleIndicators {
+            display: none;
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="bg-faded p-4 my-4">
         <hr class="divider" />
         <asp:Repeater ID="rpNameCategory" runat="server">
             <ItemTemplate>
-                <h2 class="text-center text-lg text-uppercase my-0">Loại món ăn <strong><%# Eval("Name") %></strong>  <a href="../Category/Category.aspx"><span class="badge badge-danger">Quay Lại</span></a>            
-                    </h2>
+                <h2 class="text-center text-lg text-uppercase my-0">Loại món ăn <strong><%# Eval("Name") %></strong>  <a href="../Category/Category.aspx"><span class="badge badge-danger">Quay Lại</span></a>
+                </h2>
             </ItemTemplate>
-        </asp:Repeater>                
+        </asp:Repeater>
         <hr class="divider" />
 
         <div class="row">
@@ -34,7 +34,7 @@
                                 </p>
                                 <div>
                                     <div class="col-sm-6 float-left">
-                                       <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
+                                        <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
                                     </div>
                                     <div class="col-sm-5 float-left">
                                         <button style="font-family: 'Roboto Condensed', sans-serif" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg-6-<%# Eval("ID") %>">Xem Chi Tiết</button>
@@ -65,13 +65,9 @@
                                                     <div class="col-sm-6 float-left">
                                                         <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Xem sau</button>
                                                     </div>
-<<<<<<< HEAD
+
                                                     <div class="col-sm-4 float-left">
                                                         <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
-=======
-                                                    <div class="col-sm-6 float-left">
-                                                        <input type="submit" value="Đặt món" id="btnGioHang" class="btn btn-block btn-info" />
->>>>>>> 41829455d16eff855c3b07378f1cb60db575f6a3
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,24 +76,25 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </ItemTemplate>
             </asp:Repeater>
-        </div>        
+        </div>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><asp:HyperLink ID="hlPagePre" runat="server">Previous</asp:HyperLink></li>
-                <asp:Repeater ID="rpPage" runat="server" OnItemDataBound="rpPage_ItemDataBound">                    
-                    <ItemTemplate>                        
+                <li class="page-item">
+                    <asp:HyperLink ID="hlPagePre" runat="server">Previous</asp:HyperLink></li>
+                <asp:Repeater ID="rpPage" runat="server" OnItemDataBound="rpPage_ItemDataBound">
+                    <ItemTemplate>
                         <li class="page-item" id="li">
                             <asp:HyperLink ID="hlPage" runat="server">p</asp:HyperLink>
                         </li>
-                    </ItemTemplate>                  
+                    </ItemTemplate>
                 </asp:Repeater>
-                <li class="page-item"><asp:HyperLink ID="hlPageNe" runat="server" >Next</asp:HyperLink></li>
+                <li class="page-item">
+                    <asp:HyperLink ID="hlPageNe" runat="server">Next</asp:HyperLink></li>
             </ul>
-        </nav>   
-    </div> 
+        </nav>
+    </div>
     <uc1:TopFood runat="server" ID="TopFood" />
 </asp:Content>
 
