@@ -34,10 +34,10 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <li class="page-item"><asp:HyperLink ID="hlPagePre" runat="server">Previous</asp:HyperLink></li>
-                <asp:Repeater ID="rpPage" runat="server" OnItemDataBound="rpPage_ItemDataBound">                    
+                <asp:Repeater ID="rpPage1" runat="server" OnItemDataBound="rpPage_ItemDataBound">                    
                     <ItemTemplate>                        
                         <li class="page-item" id="li">
-                            <asp:HyperLink ID="hlPage" runat="server">p</asp:HyperLink>
+                            <asp:HyperLink ID="hlPage1" runat="server">p</asp:HyperLink>
                         </li>
                     </ItemTemplate>                  
                 </asp:Repeater>
