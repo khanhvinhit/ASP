@@ -40,18 +40,16 @@
                 <li class="nav-item active px-lg-3">
                     <a class="nav-link text-uppercase text-expanded" href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></a>
                 </li>
-                <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded " href="#">Giới Thiệu</a>
-                </li>
+                
                 <li class="nav-item px-lg-3">
                     <a class="nav-link text-uppercase text-expanded" href="/View/Category/Category.aspx">Thực Đơn</a>
                 </li>
 
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="#">Khuyến Mãi - Sự Kiện <span class="badge badge-secondary">4</span></a>
+                    <a class="nav-link text-uppercase text-expanded" href="#">Giới Thiệu</a>
                 </li>
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="#">Tuyển Dụng <span class="badge badge-secondary">2</span></a>
+                    <a class="nav-link text-uppercase text-expanded" href="#">Liên Hệ</a>
                 </li>
                 <li class="nav-item px-lg-3">
                     <div class="dropdown show">
@@ -233,6 +231,9 @@
             <script src="../../Content//vendor/popper/popper.min.js"></script>
             <script src="../../Content//vendor/bootstrap/js/bootstrap.min.js"></script>
             <script src="../../scripts/multiple-themes.js"></script>
+            <script src="../../Admin/Content/vendor/datatables/js/jquery.dataTables.min.js"></script>
+            <script src="../../Content/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+            <script src="../../Content/vendor/datatables-responsive/dataTables.responsive.js"></script>
         </div>
         </div>
 </body>

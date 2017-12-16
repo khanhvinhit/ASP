@@ -20,6 +20,7 @@
             </ItemTemplate>
         </asp:Repeater>                
         <hr class="divider" />
+
         <div class="row">
             <asp:Repeater ID="rpDetail" runat="server">
                 <ItemTemplate>
@@ -39,7 +40,6 @@
                                         <button style="font-family: 'Roboto Condensed', sans-serif" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg-6-<%# Eval("ID") %>">Xem Chi Tiết</button>
                                     </div>
                                 </div>
-
                                 <div class="modal fade bd-example-modal-lg-6-<%# Eval("ID") %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -61,12 +61,17 @@
                                                     <h6>Giá: <strong style="color: #FF4000"><%# Eval("Price") %> </strong>VND
                                                     </h6>
                                                 </div>
-                                                <div class="float-right col col-sm-4">
+                                                <div class="float-right col col-sm-8">
                                                     <div class="col-sm-6 float-left">
                                                         <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Xem sau</button>
                                                     </div>
+<<<<<<< HEAD
                                                     <div class="col-sm-4 float-left">
                                                         <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
+=======
+                                                    <div class="col-sm-6 float-left">
+                                                        <input type="submit" value="Đặt món" id="btnGioHang" class="btn btn-block btn-info" />
+>>>>>>> 41829455d16eff855c3b07378f1cb60db575f6a3
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,15 +83,18 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-                
-        </div>
+        </div>        
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                <li class="page-item"><asp:HyperLink ID="hlPagePre" runat="server">Previous</asp:HyperLink></li>
+                <asp:Repeater ID="rpPage" runat="server" OnItemDataBound="rpPage_ItemDataBound">                    
+                    <ItemTemplate>                        
+                        <li class="page-item" id="li">
+                            <asp:HyperLink ID="hlPage" runat="server">p</asp:HyperLink>
+                        </li>
+                    </ItemTemplate>                  
+                </asp:Repeater>
+                <li class="page-item"><asp:HyperLink ID="hlPageNe" runat="server" >Next</asp:HyperLink></li>
             </ul>
         </nav>   
     </div> 
