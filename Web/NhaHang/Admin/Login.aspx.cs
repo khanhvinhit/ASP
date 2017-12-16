@@ -17,7 +17,7 @@ public partial class Admin_Login : System.Web.UI.Page
 	protected void Page_Load(object sender, EventArgs e)
 	{
         
-        if (Session["email"] != null)
+        if (Session["email"] != null && Session["typeID"].GetHashCode() == 1 || Session["typeID"].GetHashCode() == 2)
         {
             Response.Redirect("Default.aspx");
         }txtEmail.Focus();
@@ -42,6 +42,7 @@ public partial class Admin_Login : System.Web.UI.Page
                     Session["id"] = account.ID;
                     Session["email"] = account.Email;
                     Session["type"] = account.TypeName;
+                    Session["typeID"] = account.TypeID;
                     Session["name"] = account.Name;
                     Session["avatar"] = account.Avatar;
 

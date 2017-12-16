@@ -17,6 +17,7 @@ namespace DataAccess.Classes
         public string TypeName { get; set; }
         public int TypeID { get; set; }
 
+        public int TypeID { get; set; }
         public string Name { get; set; }
 
         public string Avatar { get; set; }
