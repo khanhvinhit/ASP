@@ -10,7 +10,7 @@ public partial class Admin_Product : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["email"] == null)
+        if (Session["email"] != null && Session["typeID"].GetHashCode() == 1 || Session["typeID"].GetHashCode() == 2)
         {
             Response.Redirect("Login.aspx");
         }
