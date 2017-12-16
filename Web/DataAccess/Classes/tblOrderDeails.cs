@@ -31,7 +31,7 @@ namespace DataAccess.Classes
             try
             {
                 object rs = DataProvider.Instance.ExecuteNonQueryWithOutput("@ID", "SP_Insert_tblOrderDeails",
-                    orderDeails.OrderID,orderDeails.ProductID,orderDeails.Quantity,orderDeails.Price
+                    orderDeails.ID,orderDeails.OrderID,orderDeails.ProductID,orderDeails.Quantity,orderDeails.Price
                     );
                 return Convert.ToInt32(rs) > 0;
             }
