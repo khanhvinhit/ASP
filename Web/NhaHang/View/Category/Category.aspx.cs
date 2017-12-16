@@ -8,7 +8,7 @@ using DataAccess.Classes;
 public partial class View_Category_Category : System.Web.UI.Page
 {
     int pageNumber = 0;
-    int pageSize =4;
+    int pageSize =2;
     int totalpage = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -27,7 +27,7 @@ public partial class View_Category_Category : System.Web.UI.Page
     public void DoPage()
     {
         int id = Convert.ToInt32(Request["id"]);
-        int total = tblProduct.Detail(id).Count();
+        int total = tblCategory.All().Count();
         if (total % pageSize == 0)
         {
             totalpage = total / pageSize;
@@ -41,19 +41,15 @@ public partial class View_Category_Category : System.Web.UI.Page
         {
             lsPage.Add(i);
         }
-        rpPage.DataSource = lsPage;
-        rpPage.DataBind();
+        rpPage1.DataSource = lsPage;
+        rpPage1.DataBind();
     }
     protected void rpPage_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
         int id = Convert.ToInt32(Request["id"]);
         int page = Convert.ToInt32(Request["page"]);
         if (e.Item.ItemIndex < 0) return;
-        HyperLink hlPage = (HyperLink)e.Item.FindControl("hlPage");
-        if (hlPage == null)
-        {
-
-        }
+        HyperLink hlPage = (HyperLink)e.Item.FindControl("hlPage1");
         if (hlPage != null)
         {
             hlPage.Text = (e.Item.ItemIndex + 1).ToString();
@@ -61,7 +57,6 @@ public partial class View_Category_Category : System.Web.UI.Page
             if (e.Item.ItemIndex + 1 == pageNumber)
             {
                 hlPage.CssClass = "alert alert-warning disabled";
-
             }
             if (page == 1)
             {
@@ -69,7 +64,7 @@ public partial class View_Category_Category : System.Web.UI.Page
             }
             else
             {
-                hlPagePre.NavigateUrl = "../Product/Category.aspx?page=" + (page - 1);
+                hlPagePre.NavigateUrl = "../Category/Category.aspx?page=" + (page - 1);
             }
             if (page == totalpage)
             {
@@ -77,9 +72,9 @@ public partial class View_Category_Category : System.Web.UI.Page
             }
             else
             {
-                hlPageNe.NavigateUrl = "../Product/Category.aspx?page=" + (page + 1);
+                hlPageNe.NavigateUrl = "../Category/Category.aspx?page=" + (page + 1);
             }
-            hlPage.NavigateUrl = "../Product/Category.aspx?page=" + (e.Item.ItemIndex + 1);
+            hlPage.NavigateUrl = "../Category/Category.aspx?page=" + (e.Item.ItemIndex + 1);
         }
     }
 }
