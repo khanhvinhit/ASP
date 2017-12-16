@@ -11,7 +11,7 @@ public partial class Admin_EditAbout : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["email"] != null && Session["typeID"].GetHashCode() == 1)
+        if (Session["email"] == null && Session["typeID"].GetHashCode() != 1)
         {
             Response.Redirect("Login.aspx");
         }
