@@ -13,7 +13,7 @@ public partial class Admin_EditAccount : System.Web.UI.Page
     private string img;
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["email"] != null && Session["typeID"].GetHashCode() == 1)
+        if (Session["email"] == null && Session["typeID"].GetHashCode() != 1)
         {
             Response.Redirect("Login.aspx");
         }

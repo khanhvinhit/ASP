@@ -9,7 +9,14 @@ public partial class Admin_Adminsite : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        txtName.Text = Session["Name"].ToString();
+        if (Session["email"] != null && Session["typeID"].GetHashCode() != 3)
+        {
+            txtName.Text = Session["Name"].ToString();
+        }
+        else
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
     
 }

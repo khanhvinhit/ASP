@@ -128,8 +128,8 @@
             <!-- Giỏ hàng -->
             <div style="position: fixed; top: 15%; right: 0.5%; z-index: 2;" id="GioHang1">
                 <a href="/View/Order/OrderDetail.aspx"><img src="../../Content//img/icon_256.png" data-toggle="modal" data-target=".bd-example-modal-lg-9-m" style="max-width: 40px; max-height: 40px" /></a>
-                <span class="badge badge-secondary">
-                    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></span>
+                <span class="badge badge-secondary" style="color: red;">
+                    <asp:Label ID="Label1" runat="server" Text="Label" ></asp:Label></span>
             </div>
 
         </div>
