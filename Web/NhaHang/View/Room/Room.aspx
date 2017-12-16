@@ -2,7 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+    
     <link href="../../Content/css/Room.css" rel="stylesheet" />
+<%--    <script src="../../Content/js/room.js"></script> --%> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="bg-faded p-4 my-4">
@@ -55,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-
+              
             </ItemTemplate>
         </asp:Repeater>
     </div>

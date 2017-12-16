@@ -17,7 +17,7 @@
     <link href="../../Content//vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="../../Content//font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light-mint/all.min.css" />
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts for this template -->q
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans" rel="stylesheet"/>
     <!-- Custom styles for this template -->
@@ -46,7 +46,7 @@
                 </li>
 
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="#">Giới Thiệu</a>
+                    <a class="nav-link text-uppercase text-expanded" href="/View/Room/Room.aspx">Giới Thiệu</a>
                 </li>
                 <li class="nav-item px-lg-3">
                     <a class="nav-link text-uppercase text-expanded" href="#">Liên Hệ</a>
