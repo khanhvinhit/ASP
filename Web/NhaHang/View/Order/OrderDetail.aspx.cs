@@ -36,6 +36,7 @@ public partial class View_Order_Order : System.Web.UI.Page
             btnOrder.Visible = false;
         }
     }
+
     protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
         string id = GridView1.DataKeys[e.NewSelectedIndex].Value.ToString();
@@ -46,10 +47,18 @@ public partial class View_Order_Order : System.Web.UI.Page
         {
             if (dr["ID"].ToString() == id)
             {
-                dr["Quantity"] = int.Parse(quantity.Text);
-                dr["TotalPrice"] = (decimal.Parse(dr["Quantity"].ToString()) *
-                                               decimal.Parse(dr["Price"].ToString()));
-                break;
+                if (int.Parse(quantity.Text) > 10)
+                {
+                    lblStatus.Text = "Chỉ tối đa 10 lần trên một món.";
+                }
+                else
+                {
+                    dr["Quantity"] = int.Parse(quantity.Text);
+                    dr["TotalPrice"] = (decimal.Parse(dr["Quantity"].ToString()) *
+                                        decimal.Parse(dr["Price"].ToString()));
+                    break;
+                }
+
             }
         }
         Session["cart"] = cart;
@@ -94,7 +103,6 @@ public partial class View_Order_Order : System.Web.UI.Page
     {
         if (Session["idCus"] == null)
         {
-<<<<<<< HEAD
             lblStatus.Text = "Hãy đăng nhập để đặt hàng.";
         }
         else
@@ -102,41 +110,31 @@ public partial class View_Order_Order : System.Web.UI.Page
             tblOrder or = new tblOrder()
             {
                 TotalPrice = decimal.Parse(total),
+                Quantity = int.Parse(quantity),
                 AccountID = (int)Session["idCus"],
-                Quantity = int.Parse(quantity)
+                AccountName = "",
+                CreateDate = DateTime.Now
             };
             int rs = tblOrder.Add(or);
-=======
-            TotalPrice = decimal.Parse(total),
-            Quantity = int.Parse(quantity),
-            AccountID = (int)Session["idCus"],
-            AccountName = "",
-            CreateDate = DateTime.Now
-        };
-        int rs = tblOrder.Add(or);
-        if (rs > 0)
-        {
->>>>>>> 9095493f3fa5c68de9aa8cb6bafb72a7beaf3f25
-            tblOrderDeails orderDeails = new tblOrderDeails()
+            if (rs > 0)
             {
-                OrderID = rs,
-                Price = decimal.Parse(total),
-                Quantity = int.Parse(quantity),
-                ProductID = int.Parse(id)
-            };
+                tblOrderDeails orderDeails = new tblOrderDeails()
+                {
+                    OrderID = rs,
+                    Price = decimal.Parse(total),
+                    Quantity = int.Parse(quantity),
+                    ProductID = int.Parse(id)
+                };
 
-            bool rp = tblOrderDeails.Add(orderDeails);
-            lblStatus.Text = rp ? "Đặt hàng thành công." : "Đặt hàng lỗi.";
-<<<<<<< HEAD
-        }
-        
-=======
-            if (rp)
-            {
-                Session["cart"] = null;
+                bool rp = tblOrderDeails.Add(orderDeails);
+                lblStatus.Text = rp ? "Đặt hàng thành công." : "Đặt hàng lỗi.";
+
+                if (rp)
+                {
+                    Session["cart"] = null;
+                }
+
             }
-            
         }
->>>>>>> 9095493f3fa5c68de9aa8cb6bafb72a7beaf3f25
     }
 }

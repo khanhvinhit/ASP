@@ -16,11 +16,6 @@ namespace DataAccess.Classes
 
         public string TypeName { get; set; }
         public int TypeID { get; set; }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> 9095493f3fa5c68de9aa8cb6bafb72a7beaf3f25
         public string Name { get; set; }
 
         public string Avatar { get; set; }
