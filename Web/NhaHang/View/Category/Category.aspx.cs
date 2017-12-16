@@ -58,7 +58,7 @@ public partial class View_Category_Category : System.Web.UI.Page
             {
                 hlPage.CssClass = "alert alert-warning disabled";
             }
-            if (page == 1)
+            if (page == 1|page==0)
             {
                 hlPagePre.CssClass = "disabled";
             }

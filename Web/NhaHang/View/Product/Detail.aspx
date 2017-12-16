@@ -65,14 +65,9 @@
                                                     <div class="col-sm-6 float-left">
                                                         <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Xem sau</button>
                                                     </div>
-                                                    
+
                                                     <div class="col-sm-4 float-left">
                                                         <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
-                                                        
-                                                    <div class="col-sm-6 float-left">
-                                                        <input type="submit" value="Đặt món" id="btnGioHang" class="btn btn-block btn-info" />
-                                                       
-                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
