@@ -71,7 +71,7 @@
                 </li>
 
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="#">Giới Thiệu</a>
+                    <a class="nav-link text-uppercase text-expanded" href="/View/Room/Room.aspx">Giới Thiệu</a>
                 </li>
                 <li class="nav-item px-lg-3">
                     <a class="nav-link text-uppercase text-expanded" href="#">Liên Hệ</a>
@@ -88,10 +88,10 @@
                                 <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/View/Customer/Registration.aspx">Đăng Ký Thành Viên</a>
                             </div>
                             <div id="DangXuat">
-                                <%if (Session["nameCus"].ToString() != null)
+                     <%--           <%if (Session["nameCus"].ToString() != null)--%>
                                     { %>
                                 <%--<p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif">Xin chào <% Console.WriteLine(Session["nameCus"].ToString());%></p>--%>
-                                <%} %>
+                                
                                 <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/TaiKhoanChiTiet">Quản lý tài khoản</a>
                                 <a class="dropdown-item" id="Admin" style="font-family: 'Roboto Condensed', sans-serif" href="/TaiKhoanChiTiet">Trang Admin</a>
                                 <p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif"><a href="/View/Customer/Logout.aspx">Đăng Xuất</a></p>
