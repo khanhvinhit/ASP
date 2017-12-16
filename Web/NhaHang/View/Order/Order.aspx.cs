@@ -40,11 +40,22 @@ public partial class View_Order_Order : System.Web.UI.Page
                     {
                         if (dr["ID"].ToString() == id)
                         {
-                            dr["Quantity"] = int.Parse(dr["Quantity"].ToString()) + 1;
-                            dr["TotalPrice"] = (decimal.Parse(dr["Quantity"].ToString())*
-                                               decimal.Parse(dr["Price"].ToString()));
-                            isExisted = true;
-                            break;
+                            if (dr["Quantity"].GetHashCode() > 10)
+                            {
+                                dr["Quantity"] = 10;
+                                dr["TotalPrice"] = (decimal.Parse(dr["Quantity"].ToString()) *
+                                                   decimal.Parse(dr["Price"].ToString()));
+                                isExisted = true;
+                            }
+                            else
+                            {
+                                dr["Quantity"] = int.Parse(dr["Quantity"].ToString()) + 1;
+                                dr["TotalPrice"] = (decimal.Parse(dr["Quantity"].ToString()) *
+                                                   decimal.Parse(dr["Price"].ToString()));
+                                isExisted = true;
+                                break;
+                            }
+
                         }
                     }
                     if (!isExisted)
