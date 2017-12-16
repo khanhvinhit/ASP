@@ -17,11 +17,7 @@ public partial class Admin_Logout : System.Web.UI.Page
     }
     protected void Logout()
     {
-        Session["email"] = null;
-        Session["type"] = null;
-        Session["name"] = null;
-        Session["avatar"] = null;
-        Response.Redirect("Login.aspx");
+        Session.RemoveAll();
         Response.Redirect("Login.aspx");
     }
 }

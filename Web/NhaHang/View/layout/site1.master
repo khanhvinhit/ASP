@@ -86,8 +86,8 @@
                             </div>
                             <div id="DangXuat">                               
                                 <p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif">Xin chào <asp:Label ID="lblName" runat="server" Text="a"></asp:Label></p>
-                                <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/TaiKhoanChiTiet">Quản lý tài khoản</a>
-                                <a class="dropdown-item" id="Admin" style="font-family: 'Roboto Condensed', sans-serif" href="/TaiKhoanChiTiet">Trang Admin</a>
+                                <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/View/Customer/AccountControl.aspx">Quản lý tài khoản</a>
+                                <a class="dropdown-item" id="Admin" style="font-family: 'Roboto Condensed', sans-serif" href="/Admin">Trang Admin</a>
                                 <p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif"><a href="/View/Customer/Logout.aspx">Đăng Xuất</a></p>
                             </div>
                         </div>

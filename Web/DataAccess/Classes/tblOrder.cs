@@ -60,5 +60,13 @@ namespace DataAccess.Classes
             }
             catch (Exception) { return null; }
         }
+        public static List<tblOrder> OrderByAccId(int id)
+        {
+            try
+            {
+                return CBO.FillCollection<tblOrder>(DataProvider.Instance.ExecuteReader("SP_OrderByAccId",id));
+            }
+            catch (Exception) { return null; }
+        }
     }
 }

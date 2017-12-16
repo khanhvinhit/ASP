@@ -37,6 +37,15 @@ public partial class View_Customer_LoginCus : System.Web.UI.Page
                     Session["emailCus"] = account.Email;
                     Session["typeidCus"] = account.TypeID;
                     Session["nameCus"] = account.Name;
+                    if (account.TypeID == 1 || account.TypeID == 2 )
+                    {
+                        Session["id"] = account.ID;
+                        Session["email"] = account.Email;
+                        Session["type"] = account.TypeName;
+                        Session["typeID"] = account.TypeID;
+                        Session["name"] = account.Name;
+                        Session["avatar"] = account.Avatar;
+                    }
                     Response.Redirect("/View/home/Default.aspx");
                     break;
                 case 1: //Thông báo tên đăng nhập không tồn tại
