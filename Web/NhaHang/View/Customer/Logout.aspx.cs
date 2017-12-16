@@ -9,16 +9,8 @@ public partial class View_Customer_Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["email"] == null)
-        {
-            Response.Redirect("LoginCus.aspx");
-        }
-        Logout();
-        
-    }
-    private void Logout()
-    {
         Session.RemoveAll();
         Response.Redirect("/View/home/Default.aspx");
+
     }
 }

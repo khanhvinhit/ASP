@@ -102,7 +102,7 @@ namespace DataAccess.Classes
         {
             try
             {
-                return CBO.FillObject<tblAccount>(DataProvider.Instance.ExecuteReader("SP_Account_Single", Convert.ToInt32(id)));
+                return CBO.FillObject<tblAccount>(DataProvider.Instance.ExecuteReader("[dbo].[SP_Account_Single]", Convert.ToInt32(id)));
             }
             catch (Exception) { return null; }
         }
