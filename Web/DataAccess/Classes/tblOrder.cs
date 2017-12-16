@@ -4,7 +4,7 @@ namespace DataAccess.Classes
     using Core;
     using System.Data;
     using System.Collections.Generic;
-    
+
     public partial class tblOrder
     {
         public int ID { get; set; }
@@ -14,6 +14,7 @@ namespace DataAccess.Classes
         public int? Quantity { get; set; }
 
         public int? AccountID { get; set; }
+
         public string AccountName { get; set; }
 
         public DateTime? CreateDate { get; set; }
@@ -28,7 +29,7 @@ namespace DataAccess.Classes
             try
             {
                 object rs = DataProvider.Instance.ExecuteNonQueryWithOutput("@ID", "[dbo].[SP_Insert_tblOrder]",
-                    order.TotalPrice,order.Quantity,order.AccountID,DateTime.Now);
+                    order.ID, order.TotalPrice, order.Quantity, order.AccountID, DateTime.Now);
                 return Convert.ToInt32(rs);
             }
             catch
@@ -36,7 +37,7 @@ namespace DataAccess.Classes
                 return 0;
             }
         }
-        
+
 
         public static bool Delete(string orderID)
         {
