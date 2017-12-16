@@ -18,7 +18,6 @@
                                 <input type="checkbox" id="chkAll" />
                             </th>
                             <th>Mã số</th>
-                            
                             <th>Ngày đặt bàn</th>
                             <th>Số lượng</th>
                             <th>Tổng tiền</th>
