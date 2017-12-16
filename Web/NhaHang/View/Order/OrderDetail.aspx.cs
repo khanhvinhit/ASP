@@ -131,9 +131,26 @@ public partial class View_Order_Order : System.Web.UI.Page
 
                 if (rp)
                 {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "redirectMe",
+                        "alert('Đặt hàng thành công!');", true);
+                    tblProduct s = new tblProduct();
+                    s = tblProduct.Single(id);
+                    int ss = s.QuantityOrder;
+                    tblProduct a = new tblProduct();
+                    a.ID = Convert.ToInt32(id);
+                    a.QuantityOrder = ss + 1;
+                    a.Name = s.Name;
+                    a.Price = s.Price;
+                    a.Images = s.Images;
+                    a.Discount = s.Discount;
+                    a.CreateDate = s.CreateDate;
+                    a.Contents = s.Contents;
+                    a.CategoryID = s.CategoryID;
+                    a.AccountID = s.AccountID;
+                    tblProduct.Update(a);
                     Session["cart"] = null;
-                }
 
+                }
             }
         }
     }

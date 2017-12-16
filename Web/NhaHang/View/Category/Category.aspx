@@ -19,7 +19,7 @@
         <div class="row ">
             <asp:Repeater ID="SelectAll" runat="server">
                 <ItemTemplate>
-                    <div class="card col-md-5 mr-auto ml-auto mb-4" style="box-shadow: 5px 3px 5px #708090"">
+                    <div class="card col-md-5 mr-auto ml-auto mb-4" style="box-shadow: 5px 3px 5px #708090">
                         <div class="card-header">
                             <%# Eval("Name") %>
                         </div>
