@@ -66,7 +66,7 @@ public partial class View_Product_Detail : System.Web.UI.Page
                 hlPage.CssClass = "alert alert-warning disabled";
                 
             }
-            if(page == 1)
+            if(page <= 1)
             {
                 hlPagePre.CssClass = "disabled";
             }
@@ -89,4 +89,6 @@ public partial class View_Product_Detail : System.Web.UI.Page
         rpDetail.DataSource = tblProduct.Detail(id);
         rpDetail.DataBind();
     }
+
+
 }
