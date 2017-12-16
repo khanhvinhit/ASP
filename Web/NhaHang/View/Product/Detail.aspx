@@ -34,8 +34,7 @@
                                 </p>
                                 <div>
                                     <div class="col-sm-6 float-left">
-                                            <input type="submit" value="đặt món" id="btngiohang" class="btn btn-info" />
-
+                                       <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
                                     </div>
                                     <div class="col-sm-5 float-left">
                                         <button style="font-family: 'Roboto Condensed', sans-serif" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg-6-<%# Eval("ID") %>">Xem Chi Tiết</button>
@@ -66,8 +65,13 @@
                                                     <div class="col-sm-6 float-left">
                                                         <button type="button" class="btn btn-block btn-secondary" data-dismiss="modal">Xem sau</button>
                                                     </div>
+<<<<<<< HEAD
+                                                    <div class="col-sm-4 float-left">
+                                                        <a href="/View/Order/Order.aspx?action=add&id=<%# Eval("ID") %>" class="btn btn-info">Đặt món</a>
+=======
                                                     <div class="col-sm-6 float-left">
                                                         <input type="submit" value="Đặt món" id="btnGioHang" class="btn btn-block btn-info" />
+>>>>>>> 41829455d16eff855c3b07378f1cb60db575f6a3
                                                     </div>
                                                 </div>
                                             </div>
