@@ -31,6 +31,10 @@ public partial class View_Order_Order : System.Web.UI.Page
             GridView1.DataSource = cart;
             GridView1.DataBind();
         }
+        if (Session["idCus"] == null)
+        {
+            btnOrder.Visible = false;
+        }
     }
     protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
@@ -88,22 +92,30 @@ public partial class View_Order_Order : System.Web.UI.Page
 
     protected void Dat_Hang(string total, string quantity, string id)
     {
-        tblOrder or = new tblOrder()
+        if (Session["idCus"] == null)
         {
-            TotalPrice = decimal.Parse(total),
-            AccountID = (int)Session["idCus"],
-            Quantity = int.Parse(quantity)
-        };
-        int rs = tblOrder.Add(or);
-        tblOrderDeails orderDeails = new tblOrderDeails()
+            lblStatus.Text = "Hãy đăng nhập để đặt hàng.";
+        }
+        else
         {
-            OrderID = rs,
-            Price = decimal.Parse(total),
-            Quantity = int.Parse(quantity),
-            ProductID = int.Parse(id)
-        };
+            tblOrder or = new tblOrder()
+            {
+                TotalPrice = decimal.Parse(total),
+                AccountID = (int)Session["idCus"],
+                Quantity = int.Parse(quantity)
+            };
+            int rs = tblOrder.Add(or);
+            tblOrderDeails orderDeails = new tblOrderDeails()
+            {
+                OrderID = rs,
+                Price = decimal.Parse(total),
+                Quantity = int.Parse(quantity),
+                ProductID = int.Parse(id)
+            };
 
-        bool rp = tblOrderDeails.Add(orderDeails);
-        lblStatus.Text = rp ? "Đặt hàng thành công." : "Đặt hàng lỗi.";
+            bool rp = tblOrderDeails.Add(orderDeails);
+            lblStatus.Text = rp ? "Đặt hàng thành công." : "Đặt hàng lỗi.";
+        }
+        
     }
 }
