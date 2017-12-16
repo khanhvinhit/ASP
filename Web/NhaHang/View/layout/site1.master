@@ -71,10 +71,7 @@
                 </li>
 
                 <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="#">Giới Thiệu</a>
-                </li>
-                <li class="nav-item px-lg-3">
-                    <a class="nav-link text-uppercase text-expanded" href="#">Liên Hệ</a>
+                    <a class="nav-link text-uppercase text-expanded" href="/View/Room/Room.aspx">Giới Thiệu</a>
                 </li>
                 <li class="nav-item px-lg-3">
                     <div class="dropdown show">
@@ -87,7 +84,8 @@
                                 <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/View/Customer/LoginCus.aspx">Đăng Nhập</a>
                                 <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/View/Customer/Registration.aspx">Đăng Ký Thành Viên</a>
                             </div>
-                            <div id="DangXuat">
+                            <div id="DangXuat">                               
+                                <p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif">Xin chào <asp:Label ID="lblName" runat="server" Text="a"></asp:Label></p>
                                 <a class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif" href="/TaiKhoanChiTiet">Quản lý tài khoản</a>
                                 <a class="dropdown-item" id="Admin" style="font-family: 'Roboto Condensed', sans-serif" href="/TaiKhoanChiTiet">Trang Admin</a>
                                 <p class="dropdown-item" style="font-family: 'Roboto Condensed', sans-serif"><a href="/View/Customer/Logout.aspx">Đăng Xuất</a></p>
