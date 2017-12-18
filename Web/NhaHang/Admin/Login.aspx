@@ -97,7 +97,7 @@
                                     Text="Đăng nhập"
                                     Font-Bold="False"
                                     OnClick="btnLogin_Click" />
-
+                                <a href="/" class="btn btn-danger btn-block">Về trang chủ</a>
                             </fieldset>
                         </form>
                     </div>
